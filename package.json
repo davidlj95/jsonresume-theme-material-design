@@ -2,10 +2,13 @@
   "name": "jsonresume-theme-boilerplate",
   "version": "0.1.5",
   "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
+  "contributors": [
+    "Mattias Erming",
+    "David LJ <npmjs+jsonresume-theme-boilerplate@davidlj95.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/davidlj95/jsonresume-theme-boilerplate"
   },
   "license": "MIT",
   "scripts": {
