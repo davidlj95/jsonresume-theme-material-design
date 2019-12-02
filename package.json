@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Boilerplate theme for JSON Resume",
   "author": "Mattias Erming",
   "repository": {
@@ -9,6 +9,8 @@
   },
   "license": "MIT",
   "scripts": {
+    "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
+    "rebase-from-boilerplate": "git fetch boilerplate/master && git rebase boilerplate/master",
     "gitignore": "curl http://gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml > .gitignore",
     "postgitignore": "cat .gitignore.template >> .gitignore",
     "preserve": "npm run update-sample-resume",
