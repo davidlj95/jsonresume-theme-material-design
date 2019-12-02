@@ -1,0 +1,10 @@
+### Project specific ###
+
+# Published files
+resume.json
+resume.pdf
+resume.html
+
+# No lock files by default
+package-lock.json
+yarn.lock

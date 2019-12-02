@@ -8,7 +8,17 @@
     "url": "https://github.com/erming/jsonresume-theme-boilerplate"
   },
   "license": "MIT",
+  "scripts": {
+    "gitignore": "curl http://gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml > .gitignore",
+    "postgitignore": "cat .gitignore.template >> .gitignore",
+    "preserve": "npm run update-sample-resume",
+    "serve": "resume serve",
+    "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/examples/valid/complete.json > resume.json"
+  },
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "resume-cli": "^1.2.7"
   }
 }
