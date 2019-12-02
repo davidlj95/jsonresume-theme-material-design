@@ -313,6 +313,12 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml
 ### Project specific ###
+
+# Published files
 resume.json
 resume.pdf
 resume.html
+
+# No lock files by default
+package-lock.json
+yarn.lock
