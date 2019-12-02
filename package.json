@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Boilerplate theme for JSON Resume",
   "author": "Mattias Erming",
   "repository": {
@@ -16,9 +16,9 @@
     "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/examples/valid/complete.json > resume.json"
   },
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4"
+    "handlebars": "^4"
   },
   "devDependencies": {
-    "resume-cli": "^1.2.7"
+    "@jsonresume/cli": "^1"
   }
 }
