@@ -16,14 +16,16 @@
     "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
     "gitignore": "curl http://gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml > .gitignore",
     "postgitignore": "cat .gitignore.template >> .gitignore",
-    "preserve": "npm run update-sample-resume",
     "serve": "resume serve",
+    "serve:watch": "concurrently \"resume serve --silent\" \"browser-sync start --config bs-config.js\"",
     "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/examples/valid/complete.json > resume.json"
   },
   "dependencies": {
     "handlebars": "^4"
   },
   "devDependencies": {
-    "@jsonresume/cli": "^1"
+    "@jsonresume/cli": "^1",
+    "browser-sync": "^2.26.7",
+    "concurrently": "^5.0.0"
   }
 }

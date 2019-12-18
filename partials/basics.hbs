@@ -1,90 +1,159 @@
 {{#resume.basics}}
-	<h1>{{name}}</h1>
-	<h2>{{label}}</h2>
-	<section id="basics">
-		<div class="contact">
-		{{#if website}}
-		<div class="website">
-			<strong>Website</strong>
-			{{website}}
-		</div>
-		{{/if}}
-		{{#if email}}
-		<div class="email">
-			<strong>Email</strong>
-			{{email}}
-		</div>
-		{{/if}}
-		{{#if phone}}
-		<div class="phone">
-			<strong>Phone</strong>
-			{{phone}}
-		</div>
-		{{/if}}
-		</div>
-		{{#if summary}}
-		<div class="summary">
-			<p>{{summary}}</p>
-		</div>
-		{{/if}}
-		{{#location}}
-		<h3>Location</h3>
-		<section id="location">
-			{{#if address}}
-			<div class="address">
-				<strong>Address</strong>
-				{{address}}
-			</div>
-			{{/if}}
-			{{#if postalCode}}
-			<div class="postalCode">
-				<strong>Postal code</strong>
-				{{postalCode}}
-			</div>
-			{{/if}}
-			{{#if city}}
-			<div class="city">
-				<strong>City</strong>
-				{{city}}
-			</div>
-			{{/if}}
-			{{#if countryCode}}
-			<div class="countryCode">
-				<strong>Country code</strong>
-				{{countryCode}}
-			</div>
-			{{/if}}
-			{{#if region}}
-			<div class="region">
-				<strong>Region</strong>
-				{{region}}
-			</div>
-			{{/if}}
-		</section>
-		{{/location}}
-		{{#if profiles.length}}
-		<h3>Profiles</h3>
-		<section id="profiles">
-			{{#each profiles}}
-			<div class="item">
-				{{#if network}}
-				<strong class="network">
-					{{network}}
-				</strong>
-				{{/if}}
-				{{#if username}}
-				<div class="username">
-					{{username}}
-				</div>
-				{{/if}}
-				{{#if url}}
-				<div class="url">
-					<a href="{{url}}">Link</a>
-				</div>
-				{{/if}}
-			</div>
-			{{/each}}
-		</section>
-		{{/if}}
-	</section>
-{{/resume.basics}}
+<div class="mdc-card mdc-card--outlined demo-card demo-ui-control">
+    <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
+        <div class="mdc-card__media mdc-card__media--square demo-card__media"
+             style="background-image: url(&quot;{{image}}&quot;);"></div>
+        <div class="demo-card__primary">
+            <h2 class="demo-card__title mdc-typography mdc-typography--headline6">{{name}}</h2>
+            <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">{{label}}</h3>
+        </div>
+    </div>
+    <div id="mapid"></div>
+    <script>
+        var mymap = L.map('mapid', {
+            zoomControl: false,
+            dragging: false }).setView([51.505, -0.09], 13);
+
+        var map = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/streets-v11',
+        }).addTo(mymap);
+        var marker = L.marker([51.5, -0.09]).addTo(mymap);
+        marker.bindPopup("<b>I live here!</b>").openPopup();
+        window.map = mymap;
+    </script>
+    <div class="mdc-card__content mdc-typography--body1">
+        {{summary}}
+    </div>
+    <div>
+
+    </div>
+    <div class="mdc-card__actions">
+        <div class="mdc-card__action-buttons">
+            <!--            <button class="mdc-button mdc-card__action mdc-card__action--button"><span-->
+            <!--                    class="mdc-button__ripple"></span> Resumé-->
+            <!--            </button>-->
+            <a href="https://github.com" target="_blank">
+                <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
+                        title="Github" data-mdc-ripple-is-unbounded="true">
+                    <i class="fab fa-github"></i>
+                </button>
+            </a>
+            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
+                    title="LinkedIn" data-mdc-ripple-is-unbounded="true">
+                <i class="fab fa-linkedin"></i>
+            </button>
+            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
+                    title="Twitter" data-mdc-ripple-is-unbounded="true">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
+                    title="Stack Overflow" data-mdc-ripple-is-unbounded="true">
+                <i class="fab fa-stack-overflow"></i>
+            </button>
+        </div>
+        <div class="mdc-card__action-icons">
+            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                    title="Share" data-mdc-ripple-is-unbounded="true">phone
+            </button>
+            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                    title="More options" data-mdc-ripple-is-unbounded="true">mail
+            </button>
+            <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                    title="More options" data-mdc-ripple-is-unbounded="true">more_vert
+            </button>
+        </div>
+    </div>
+</div>
+<!--	<h1>{{name}}</h1>-->
+<!--	<h2>{{label}}</h2>-->
+<!--	<section id="basics">-->
+<!--		<div class="contact">-->
+        <!--		{{#if website}}-->
+<!--		<div class="website">-->
+<!--			<strong>Website</strong>-->
+<!--			{{website}}-->
+<!--		</div>-->
+        <!--		{{/if}}-->
+        <!--		{{#if email}}-->
+<!--		<div class="email">-->
+<!--			<strong>Email</strong>-->
+<!--			{{email}}-->
+<!--		</div>-->
+        <!--		{{/if}}-->
+        <!--		{{#if phone}}-->
+<!--		<div class="phone">-->
+<!--			<strong>Phone</strong>-->
+<!--			{{phone}}-->
+<!--		</div>-->
+        <!--		{{/if}}-->
+<!--		</div>-->
+        <!--		{{#if summary}}-->
+<!--		<div class="summary">-->
+<!--			<p>{{summary}}</p>-->
+<!--		</div>-->
+        <!--		{{/if}}-->
+        <!--		{{#location}}-->
+<!--		<h3>Location</h3>-->
+<!--		<section id="location">-->
+        <!--			{{#if address}}-->
+<!--			<div class="address">-->
+<!--				<strong>Address</strong>-->
+<!--				{{address}}-->
+<!--			</div>-->
+        <!--			{{/if}}-->
+        <!--			{{#if postalCode}}-->
+<!--			<div class="postalCode">-->
+<!--				<strong>Postal code</strong>-->
+<!--				{{postalCode}}-->
+<!--			</div>-->
+        <!--			{{/if}}-->
+        <!--			{{#if city}}-->
+<!--			<div class="city">-->
+<!--				<strong>City</strong>-->
+<!--				{{city}}-->
+<!--			</div>-->
+        <!--			{{/if}}-->
+        <!--			{{#if countryCode}}-->
+<!--			<div class="countryCode">-->
+<!--				<strong>Country code</strong>-->
+<!--				{{countryCode}}-->
+<!--			</div>-->
+        <!--			{{/if}}-->
+        <!--			{{#if region}}-->
+<!--			<div class="region">-->
+<!--				<strong>Region</strong>-->
+<!--				{{region}}-->
+<!--			</div>-->
+        <!--			{{/if}}-->
+<!--		</section>-->
+        <!--		{{/location}}-->
+        <!--		{{#if profiles.length}}-->
+<!--		<h3>Profiles</h3>-->
+<!--		<section id="profiles">-->
+        <!--			{{#each profiles}}-->
+<!--			<div class="item">-->
+        <!--				{{#if network}}-->
+<!--				<strong class="network">-->
+<!--					{{network}}-->
+<!--				</strong>-->
+        <!--				{{/if}}-->
+        <!--				{{#if username}}-->
+<!--				<div class="username">-->
+<!--					{{username}}-->
+<!--				</div>-->
+        <!--				{{/if}}-->
+        <!--				{{#if url}}-->
+<!--				<div class="url">-->
+<!--					<a href="{{url}}">Link</a>-->
+<!--				</div>-->
+        <!--				{{/if}}-->
+<!--			</div>-->
+        <!--			{{/each}}-->
+<!--		</section>-->
+        <!--		{{/if}}-->
+<!--	</section>-->
+        <!--{{/resume.basics}}-->
