@@ -1,27 +1,95 @@
-const fs = require("fs");
+const fs = require('fs');
 const path = require('path');
-const Handlebars = require("handlebars");
+const Handlebars = require('handlebars');
+const FontawesomeHelper = require('./src/helpers/fontawesome.helper');
+const tmp = require('tmp');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config');
 
 function render(resume) {
-    const css = fs.readFileSync(__dirname + "/style.css", "utf-8");
-    const tpl = fs.readFileSync(__dirname + "/resume.hbs", "utf-8");
-    const partialsDir = path.join(__dirname, 'partials');
-    const filenames = fs.readdirSync(partialsDir);
+    return bundleResumeHtml(
+        renderTemplate(resume)
+    );
+}
 
+function renderTemplate(resume) {
+    const sourcesPath = path.join(__dirname, "src");
+    const templatePath = path.join(sourcesPath, "resume.hbs");
+    const partialsPath = path.join(sourcesPath, "partials");
+
+    const template = fs.readFileSync(templatePath, "utf-8");
+
+    registerPartials(partialsPath);
+    registerHelpers();
+
+    return Handlebars.compile(template)({
+        resume: resume,
+    });
+}
+
+function registerPartials(partialsPath) {
+    const filenames = fs.readdirSync(partialsPath);
     filenames.forEach(function (filename) {
         const matches = /^([^.]+).hbs$/.exec(filename);
         if (!matches) {
             return;
         }
         const name = matches[1];
-        const filepath = path.join(partialsDir, filename);
+        const filepath = path.join(partialsPath, filename);
         const template = fs.readFileSync(filepath, 'utf8');
 
         Handlebars.registerPartial(name, template);
     });
-    return Handlebars.compile(tpl)({
-        css: css,
-        resume: resume
+}
+
+function registerHelpers() {
+    Handlebars.registerHelper("fontawesome", FontawesomeHelper);
+}
+
+async function bundleResumeHtml(resumeHtml) {
+    const tmpDirObj = tmp.dirSync();
+    const tmpDir = tmpDirObj.name;
+
+    const templateHtmlPath = path.join(tmpDir, "template.html");
+    fs.writeFileSync(templateHtmlPath, resumeHtml, "utf-8");
+
+    const distPath = path.join(tmpDir, "dist");
+
+    const config = getWebpackConfig(distPath, templateHtmlPath);
+    const compiler = webpack(config);
+    await runCompiler(compiler);
+    const resultPath = path.join(distPath, "index.html");
+    try {
+        const resultHtml = fs.readFileSync(resultPath);
+        return resultHtml.toString();
+    } catch (e) {
+        return "Webpack did not bundle properly";
+    } finally {
+        tmpDirObj.removeCallback();
+    }
+}
+
+function getWebpackConfig(distPath, templatePath) {
+    const baseConfig = Object.assign({}, webpackConfig);
+    baseConfig.output.path = distPath;
+    baseConfig.plugins = webpackConfig.plugins.map(pluginFactory => pluginFactory(templatePath));
+    // const htmlWebpackPlugin = baseConfig.plugins.find(plugin => plugin.constructor.name === "HtmlWebpackPlugin");
+    // if (!htmlWebpackPlugin) {
+    //     throw Error('No HtmlWebpackPlugin');
+    // }
+    // htmlWebpackPlugin.options.template = templatePath;
+    return baseConfig;
+}
+
+function runCompiler(compiler) {
+    return new Promise((resolve, reject) => {
+        compiler.run((err, stats) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(stats);
+            }
+        });
     });
 }
 

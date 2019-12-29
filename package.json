@@ -1,31 +1,48 @@
 {
-  "name": "@jsonresume/theme-boilerplate",
-  "version": "0.1.6",
-  "description": "Boilerplate theme for JSON Resume",
-  "contributors": [
-    "Mattias Erming",
-    "David LJ <npmjs+jsonresume-theme-boilerplate@davidlj95.com>"
-  ],
+  "name": "jsonresume-theme-material-design",
+  "version": "0.2.0",
+  "description": "JSON Resume theme applying Material Design guidelines",
   "repository": {
     "type": "git",
     "url": "https://github.com/davidlj95/jsonresume-theme-boilerplate"
   },
   "license": "MIT",
+  "contributors": [
+    "David LJ <npmjs+jsonresume-theme-material-design@davidlj95.com>"
+  ],
   "scripts": {
     "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
-    "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
     "gitignore": "curl http://gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml > .gitignore",
     "postgitignore": "cat .gitignore.template >> .gitignore",
+    "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
     "serve": "resume serve",
     "serve:watch": "concurrently \"resume serve --silent\" \"browser-sync start --config bs-config.js\"",
     "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/examples/valid/complete.json > resume.json"
   },
   "dependencies": {
-    "handlebars": "^4"
-  },
-  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@jsonresume/cli": "^1",
+    "@material/button": "^4.0.0",
+    "@material/card": "^4.0.0",
+    "@material/icon-button": "^4.0.0",
+    "@material/theme": "^4.0.0",
+    "@material/typography": "^4.0.0",
+    "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
-    "concurrently": "^5.0.0"
+    "concurrently": "^5.0.0",
+    "css-loader": "^3.4.0",
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "tmp": "^0.1.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.3"
   }
 }

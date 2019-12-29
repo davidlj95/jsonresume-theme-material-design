@@ -18,10 +18,8 @@ module.exports = {
     },
     "files": [
         "index.js",
-        "resume.hbs",
-        "partials/**/*.hbs",
+        "src/**/*.*",
         "resume.json",
-        "styles.css",
     ],
     "watchEvents": [
         "change"

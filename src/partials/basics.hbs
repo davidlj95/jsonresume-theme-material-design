@@ -2,7 +2,7 @@
 <div class="mdc-card mdc-card--outlined demo-card demo-ui-control">
     <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
         <div class="mdc-card__media mdc-card__media--square demo-card__media"
-             style="background-image: url(&quot;{{image}}&quot;);"></div>
+             style="background-image: url({{image}});"></div>
         <div class="demo-card__primary">
             <h2 class="demo-card__title mdc-typography mdc-typography--headline6">{{name}}</h2>
             <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">{{label}}</h3>
@@ -39,20 +39,20 @@
             <a href="https://github.com" target="_blank">
                 <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
                         title="Github" data-mdc-ripple-is-unbounded="true">
-                    <i class="fab fa-github"></i>
+                    {{fontawesome "fab" "faGithub"}}
                 </button>
             </a>
             <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
                     title="LinkedIn" data-mdc-ripple-is-unbounded="true">
-                <i class="fab fa-linkedin"></i>
+                {{fontawesome "fab" "faLinkedin"}}
             </button>
             <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
                     title="Twitter" data-mdc-ripple-is-unbounded="true">
-                <i class="fab fa-twitter"></i>
+                {{fontawesome "fab" "faTwitter"}}
             </button>
             <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
                     title="Stack Overflow" data-mdc-ripple-is-unbounded="true">
-                <i class="fab fa-stack-overflow"></i>
+                {{fontawesome "fab" "faStackOverflow"}}
             </button>
         </div>
         <div class="mdc-card__action-icons">
@@ -156,4 +156,4 @@
 <!--		</section>-->
         <!--		{{/if}}-->
 <!--	</section>-->
-        <!--{{/resume.basics}}-->
+        {{/resume.basics}}
