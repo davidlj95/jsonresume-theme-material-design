@@ -1,6 +1,11 @@
+@import "my-theme";
+
 @import "~@material/typography/mdc-typography";
+@import "~@material/chips/mdc-chips";
 @import "~@material/icon-button/mdc-icon-button";
 @import "~@material/card/mdc-card";
 
-@import "fonts";
-@import "legacy";
+@import "my-layout";
+@import "my-components";
+
+@import "basics";

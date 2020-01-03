@@ -1,0 +1,19 @@
+.basics-card .mdc-card__actions {
+  flex-wrap: wrap;
+}
+
+.basics-card .mdc-card__content {
+  text-align: justify;
+}
+
+.basics-card .mdc-card__media > img {
+  width: 96px;
+  height: 96px;
+  border-radius: 96px;
+  margin-right: 16px;
+}
+
+.basics-card .mdc-chip-set {
+  width: 100%;
+  justify-content: center;
+}

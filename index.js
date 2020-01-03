@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
 const FontawesomeHelper = require('./src/helpers/fontawesome.helper');
+const LocationHelper = require('./src/helpers/location.helper');
+const PreloadImageHelper = require('./src/helpers/preload-image.helper');
 const tmp = require('tmp');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -44,6 +46,8 @@ function registerPartials(partialsPath) {
 
 function registerHelpers() {
     Handlebars.registerHelper("fontawesome", FontawesomeHelper);
+    Handlebars.registerHelper("locationAsString", LocationHelper);
+    Handlebars.registerHelper("preloadImage", PreloadImageHelper);
 }
 
 async function bundleResumeHtml(resumeHtml) {

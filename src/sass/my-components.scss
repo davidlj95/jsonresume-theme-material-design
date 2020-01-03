@@ -1,0 +1,92 @@
+/**
+ * View filters
+ */
+@media not print {
+  .just-print {
+    display: none;
+  }
+}
+
+@media not screen {
+  .just-screen {
+    display: none;
+  }
+}
+
+/**
+ * Cards defaults
+ */
+.mdc-card {
+
+  .mdc-card__header--padded {
+    padding: 16px;
+  }
+
+  .mdc-card__header {
+
+    display: flex;
+    flex-direction: row;
+
+
+    .mdc-card__header-texts {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+      }
+
+      .mdc-typography--subtitle1 {
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .mdc-typography--subtitle2 {
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+
+  .mdc-card__action-buttons {
+    color: rgba(0, 0, 0, 0.6);
+
+    a {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+    }
+  }
+
+  .mdc-card__action-icons {
+    a {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+    }
+  }
+
+  .mdc-card__content--padded {
+    padding: 8px 16px 8px 16px;
+  }
+}
+
+/**
+ * Chips
+ */
+.mdc-chip {
+  // SVG inside the chip icon
+  .mdc-chip__icon--fontawesome.mdc-chip__icon--leading {
+    margin-left: 0;
+    margin-right: 0;
+
+    > svg {
+      height: 17.5px;
+      width: 17.5px;
+    }
+  }
+}
+
+
+.mdc-chip > a {
+  text-decoration: none;
+  color: inherit;
+}
