@@ -1,0 +1,8 @@
+/**
+ * MDC Card
+ */
+@mixin mdc-card-media-circle($radius: 64px) {
+  width: $radius;
+  height: $radius;
+  border-radius: $radius;
+}

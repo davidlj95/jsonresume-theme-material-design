@@ -1,3 +1,5 @@
+@import "~@material/typography/mdc-typography";
+
 /**
  * View filters
  */
@@ -14,9 +16,37 @@
 }
 
 /**
+ * Typography
+ */
+h1 {
+  @include mdc-typography("headline1");
+}
+h2 {
+  @include mdc-typography("headline2");
+}
+h3 {
+  @include mdc-typography("headline3");
+}
+h4 {
+  @include mdc-typography("headline4");
+}
+h5 {
+  @include mdc-typography("headline5");
+}
+h6 {
+  @include mdc-typography("headline6");
+}
+
+/**
  * Cards defaults
  */
 .mdc-card {
+
+  // Primary action clickable
+  > a {
+    color: initial;
+    text-decoration: none;
+  }
 
   .mdc-card__header--padded {
     padding: 16px;
@@ -48,6 +78,10 @@
     }
   }
 
+  .mdc-card__content--padded {
+    padding: 8px 16px 8px 16px;
+  }
+
   .mdc-card__action-buttons {
     color: rgba(0, 0, 0, 0.6);
 
@@ -64,9 +98,6 @@
     }
   }
 
-  .mdc-card__content--padded {
-    padding: 8px 16px 8px 16px;
-  }
 }
 
 /**

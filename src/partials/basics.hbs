@@ -1,139 +1,150 @@
 {{#resume.basics}}
-    <div class="mdc-card mdc-card--outlined basics-card">
-        <div class="mdc-card__header mdc-card__header--padded">
-            {{#if image}}
-                <div class="mdc-card__media mdc-card__media--circle">
-                    <img src="{{preloadImage image}}" alt="profile picture"/>
-                </div>
-            {{/if}}
-            <div class="mdc-card__header-texts">
-                {{#if name}}
-                    <h2 class="mdc-typography mdc-typography--headline6">{{name}}</h2>
-                {{/if}}
-                {{#if label}}
-                    <h3 class="mdc-typography mdc-typography--subtitle2">{{label}}</h3>
-                {{/if}}
-            </div>
-        </div>
-        {{#if summary}}
-            <div class="mdc-card__content mdc-card__content--padded mdc-typography--body1">
-                {{summary}}
-            </div>
-        {{/if}}
-        <div class="mdc-card__actions">
-            <div class="mdc-chip-set just-print" role="grid">
-                {{#if phone}}
-                    <div class="mdc-chip" role="row">
-                        <div class="mdc-chip__ripple"></div>
-                        <a href="tel:{{phone}}" target="_blank">
-                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">phone</i>
-                            <span role="gridcell">
+    <section id="basics">
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-card mdc-card--outlined basics-card">
+                        <div class="mdc-card__header mdc-card__header--padded">
+                            {{#if image}}
+                                <div class="mdc-card__media mdc-card__media--circle">
+                                    <img src="{{preloadImage image}}" alt="profile picture"/>
+                                </div>
+                            {{/if}}
+                            <div class="mdc-card__header-texts">
+                                {{#if name}}
+                                    <h6>{{name}}</h6>
+                                {{/if}}
+                                {{#if label}}
+                                    <span class="mdc-typography mdc-typography--subtitle2">{{label}}</span>
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{#if summary}}
+                            <div class="mdc-card__content mdc-card__content--padded mdc-typography--body1">
+                                {{summary}}
+                            </div>
+                        {{/if}}
+                        <div class="mdc-card__actions">
+                            <div class="mdc-chip-set just-print" role="grid">
+                                {{#if phone}}
+                                    <div class="mdc-chip" role="row">
+                                        <div class="mdc-chip__ripple"></div>
+                                        <a href="tel:{{phone}}" target="_blank">
+                                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">phone</i>
+                                            <span role="gridcell">
                                 <span role="button" tabindex="0" class="mdc-chip__text">{{phone}}</span>
                             </span>
-                        </a>
-                    </div>
-                {{/if}}
-                {{#if email}}
-                    <div class="mdc-chip" role="row">
-                        <div class="mdc-chip__ripple"></div>
-                        <a href="mailto:{{email}}" target="_blank">
-                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">mail</i>
-                            <span role="gridcell">
+                                        </a>
+                                    </div>
+                                {{/if}}
+                                {{#if email}}
+                                    <div class="mdc-chip" role="row">
+                                        <div class="mdc-chip__ripple"></div>
+                                        <a href="mailto:{{email}}" target="_blank">
+                                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">mail</i>
+                                            <span role="gridcell">
                                 <span role="button" tabindex="0" class="mdc-chip__text">{{email}}</span>
                             </span>
-                        </a>
-                    </div>
-                {{/if}}
-                {{#if url}}
-                    <div class="mdc-chip" role="row">
-                        <div class="mdc-chip__ripple"></div>
-                        <a href="{{url}}" target="_blank">
-                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">link</i>
-                            <span role="gridcell">
+                                        </a>
+                                    </div>
+                                {{/if}}
+                                {{#if url}}
+                                    <div class="mdc-chip" role="row">
+                                        <div class="mdc-chip__ripple"></div>
+                                        <a href="{{url}}" target="_blank">
+                                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">link</i>
+                                            <span role="gridcell">
                                 <span role="button" tabindex="0" class="mdc-chip__text">{{url}}</span>
                             </span>
-                        </a>
-                    </div>
-                {{/if}}
-                {{#if location}}
-                    <div class="mdc-chip" role="row">
-                        <div class="mdc-chip__ripple"></div>
-                        <a href="https://maps.google.com?q={{locationAsString location}}" target="_blank">
-                            <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">my_location</i>
-                            <span role="gridcell">
-                                <span role="button" tabindex="0" class="mdc-chip__text">{{locationAsString location}}</span>
+                                        </a>
+                                    </div>
+                                {{/if}}
+                                {{#if location}}
+                                    <div class="mdc-chip" role="row">
+                                        <div class="mdc-chip__ripple"></div>
+                                        <a href="https://maps.google.com?q={{locationAsString location}}"
+                                        target="_blank">
+                                        <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">my_location</i>
+                                        <span role="gridcell">
+                                <span role="button" tabindex="0" class="mdc-chip__text">{{locationAsString
+                                        location}}</span>
                             </span>
-                        </a>
-                    </div>
-                {{/if}}
-                {{#if profiles}}
-                    {{#each profiles}}
-                        <div class="mdc-chip" role="row">
-                            <div class="mdc-chip__ripple"></div>
-                            {{#if this.url}}
-                            <a href="{{url}}" target="_blank">
-                            {{/if}}
-                            <i class="mdc-chip__icon mdc-chip__icon--fontawesome mdc-chip__icon--leading">
-                                {{fontawesome "fab" network}}
-                            </i>
-                            <span role="gridcell">
+                                        </a>
+                                    </div>
+                                {{/if}}
+                                {{#if profiles}}
+                                    {{#each profiles}}
+                                        <div class="mdc-chip" role="row">
+                                            <div class="mdc-chip__ripple"></div>
+                                            {{#if this.url}}
+                                            <a href="{{url}}" target="_blank">
+                                            {{/if}}
+                                            <i class="mdc-chip__icon mdc-chip__icon--fontawesome mdc-chip__icon--leading">
+                                                {{fontawesome "fab" network}}
+                                            </i>
+                                            <span role="gridcell">
                                 <span role="button" tabindex="0" class="mdc-chip__text">{{username}}</span>
                             </span>
-                            {{#if this.url}}
-                            </a>
+                                            {{#if this.url}}
+                                            </a>
+                                            {{/if}}
+                                        </div>
+                                    {{/each}}
+                                {{/if}}
+                            </div>
+                            {{#if profiles}}
+                                <div class="mdc-card__action-buttons just-screen">
+                                    {{#each profiles}}
+                                        {{#if this.url}}
+                                        <a href="{{url}}" target="_blank">
+                                        {{/if}}
+                                        <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
+                                                title="{{network}}" data-mdc-ripple-is-unbounded="true">
+                                            {{fontawesome "fab" network}}
+                                        </button>
+                                        {{#if this.url}}
+                                        </a>
+                                        {{/if}}
+                                    {{/each}}
+                                </div>
                             {{/if}}
+                            <div class="mdc-card__action-icons just-screen">
+                                {{#if phone}}
+                                    <a href="tel:{{phone}}">
+                                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                                                type="button"
+                                                title="Phone" data-mdc-ripple-is-unbounded="true">phone
+                                        </button>
+                                    </a>
+                                {{/if}}
+                                {{#if email}}
+                                    <a href="mailto:{{email}}">
+                                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                                                type="button" title="More options" data-mdc-ripple-is-unbounded="true">
+                                            mail
+                                        </button>
+                                    </a>
+                                {{/if}}
+                                {{#if url}}
+                                    <a href="{{url}}" target="_blank">
+                                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                                                type="button" title="Website" data-mdc-ripple-is-unbounded="true">link
+                                        </button>
+                                    </a>
+                                {{/if}}
+                                {{#if location}}
+                                    <a href="https://maps.google.com?q={{locationAsString location}}" target="_blank">
+                                    <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
+                                            type="button" title="More options" data-mdc-ripple-is-unbounded="true">
+                                        my_location
+                                    </button>
+                                    </a>
+                                {{/if}}
+                            </div>
                         </div>
-                    {{/each}}
-                {{/if}}
-            </div>
-            {{#if profiles}}
-                <div class="mdc-card__action-buttons just-screen">
-                    {{#each profiles}}
-                        {{#if this.url}}
-                        <a href="{{url}}" target="_blank">
-                        {{/if}}
-                        <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded"
-                                title="{{network}}" data-mdc-ripple-is-unbounded="true">
-                            {{fontawesome "fab" network}}
-                        </button>
-                        {{#if this.url}}
-                        </a>
-                        {{/if}}
-                    {{/each}}
+                    </div>
                 </div>
-            {{/if}}
-            <div class="mdc-card__action-icons just-screen">
-                {{#if phone}}
-                    <a href="tel:{{phone}}">
-                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
-                                type="button"
-                                title="Phone" data-mdc-ripple-is-unbounded="true">phone
-                        </button>
-                    </a>
-                {{/if}}
-                {{#if email}}
-                    <a href="mailto:{{email}}">
-                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
-                                type="button" title="More options" data-mdc-ripple-is-unbounded="true">mail
-                        </button>
-                    </a>
-                {{/if}}
-                {{#if url}}
-                    <a href="{{url}}" target="_blank">
-                        <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
-                                type="button" title="Website" data-mdc-ripple-is-unbounded="true">link
-                        </button>
-                    </a>
-                {{/if}}
-                {{#if location}}
-                    <a href="https://maps.google.com?q={{locationAsString location}}" target="_blank">
-                    <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded"
-                            type="button" title="More options" data-mdc-ripple-is-unbounded="true">
-                        my_location
-                    </button>
-                    </a>
-                {{/if}}
             </div>
         </div>
-    </div>
+    </section>
 {{/resume.basics}}

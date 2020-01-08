@@ -1,19 +1,25 @@
-.basics-card .mdc-card__actions {
-  flex-wrap: wrap;
-}
+@import "functions";
 
-.basics-card .mdc-card__content {
-  text-align: justify;
-}
+#basics {
+  .basics-card {
 
-.basics-card .mdc-card__media > img {
-  width: 96px;
-  height: 96px;
-  border-radius: 96px;
-  margin-right: 16px;
-}
+    .mdc-card__media > img {
+      @include mdc-card-media-circle(96px);
+      margin-right: 16px;
+    }
 
-.basics-card .mdc-chip-set {
-  width: 100%;
-  justify-content: center;
+    .mdc-chip-set {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .mdc-card__content {
+      text-align: justify;
+    }
+
+    .mdc-card__actions {
+      flex-wrap: wrap;
+    }
+
+  }
 }

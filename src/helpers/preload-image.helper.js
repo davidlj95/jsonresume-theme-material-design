@@ -44,6 +44,12 @@ const DEFAULT_IMAGE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAg" +
     "AEAAFAABAABAABQAAQAAQAAUAAEAAEAAFAABAABAABQAAQAAQAAUAAEAAEAAFAABAA" +
     "BMCB/AIWiIEZwqX3ewAAAABJRU5ErkJggg==";
 
+function getType(name) {
+   if(name.endsWith('.png')) return 'image/png';
+   if(name.endsWith('.jpg')) return 'image/jpg';
+   if(name.endsWith('.jpeg')) return 'image/jpeg';
+}
+
 /**
  * Fetches the image and returns its data URI equivalent
  *
@@ -61,7 +67,7 @@ module.exports = function PreloadImageHelper(image) {
         console.warn(`Image could not be fetched: ${response.statusCode}`);
         return DEFAULT_IMAGE;
     }
-    const contentType = response.headers['content-type'];
+    const contentType = response.headers['content-type'] || getType(image);
     if (!contentType) {
         console.warn('Image response has no content type');
         return DEFAULT_IMAGE;

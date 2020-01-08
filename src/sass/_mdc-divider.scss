@@ -1,0 +1,12 @@
+// https://github.com/material-components/material-components-web/pull/4971/files
+$mdc-divider-color: rgba(0, 0, 0, .12);
+@mixin mdc-divider-core-styles {
+  .mdc-divider {
+    margin: 8px 0 8px 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $mdc-divider-color;
+  }
+}
+@include mdc-divider-core-styles;

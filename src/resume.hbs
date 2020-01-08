@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
     <title>{{#basics}}{{name}}{{/basics}}</title>
+    <noscript><style>.js-only { display: none !important;}</style></noscript>
 </head>
 <body>
 <div id="resume">
     {{> basics }}
-    {{!> partials/work }}
+    {{> work }}
     {{!> partials/volunteer }}
     {{!> partials/education }}
     {{!> partials/awards }}
