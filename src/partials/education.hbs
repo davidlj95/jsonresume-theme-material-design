@@ -13,7 +13,7 @@
                     <div class="mdc-layout-grid__cell">
                         <div class="mdc-card education-card mdc-card--outlined">
                             {{#if website}}<a href="{{website}}">{{/if}}
-                            <div class="mdc-card__header mdc-card__header--padded mdc-card__primary-action">
+                            <div class="mdc-card__header mdc-card__header--padded {{#if website}}mdc-card__primary-action{{/if}}">
                                 {{#if image}}
                                     <div class="mdc-card__media mdc-card__media--circle">
                                         <img src="{{preloadImage image}}" alt="{{#if company}}{{company}}{{/if}} logo"/>
