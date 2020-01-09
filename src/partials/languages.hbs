@@ -11,7 +11,7 @@
             <div class="mdc-layout-grid__inner">
                 {{#each resume.languages}}
                     <div class="mdc-layout-grid__cell">
-                        <div class="skill-card mdc-card mdc-card--outlined">
+                        <div class="mdc-card mdc-card--outlined">
                             <div class="mdc-card__header mdc-card__header--padded">
                                 {{#if flag}}
                                     <div class="mdc-card__media mdc-card__media--circle--small">
@@ -20,10 +20,15 @@
                                 {{/if}}
                                 <div class="mdc-card__header-texts">
                                     {{#if language}}<h6>{{language}}</h6>{{/if}}
+                                    <span>
                                     {{#if fluency}}
                                         <span class="level-stars">{{levelToStars fluency}}</span>
                                         <span class="mdc-typography--subtitle1">{{levelDefault fluency}}</span>
                                     {{/if}}
+                                        {{#if comment}}
+                                            <span class="mdc-typography--subtitle1"> ({{comment}})</span>
+                                        {{/if}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
