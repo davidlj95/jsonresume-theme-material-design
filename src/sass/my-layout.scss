@@ -8,3 +8,15 @@ body, html {
   display: flex;
   flex-direction: column;
 }
+
+section {
+  .title {
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    h5 {
+      margin: 0;
+    }
+  }
+}
