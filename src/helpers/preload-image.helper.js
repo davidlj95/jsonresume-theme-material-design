@@ -45,10 +45,10 @@ const DEFAULT_IMAGE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAg" +
     "BMCB/AIWiIEZwqX3ewAAAABJRU5ErkJggg==";
 
 function getType(name) {
-   if(name.endsWith('.png')) return 'image/png';
-   if(name.endsWith('.svg')) return 'image/svg+xml';
-   if(name.endsWith('.jpg')) return 'image/jpg';
-   if(name.endsWith('.jpeg')) return 'image/jpeg';
+    if (name.endsWith('.png')) return 'image/png';
+    if (name.endsWith('.svg')) return 'image/svg+xml';
+    if (name.endsWith('.jpg')) return 'image/jpg';
+    if (name.endsWith('.jpeg')) return 'image/jpeg';
 }
 
 /**
@@ -61,9 +61,15 @@ function getType(name) {
  */
 module.exports = function PreloadImageHelper(image) {
     if (image.startsWith('data:image')) return image;
-    const response = request('GET', image, {
-        cache: 'file'
-    });
+    let response;
+    try {
+        response = request('GET', image, {
+            cache: 'file'
+        });
+    } catch {
+        console.warn("Failed to fetch image");
+        return DEFAULT_IMAGE;
+    }
     if (response.statusCode !== 200) {
         console.warn(`Image could not be fetched: ${response.statusCode}`);
         return DEFAULT_IMAGE;

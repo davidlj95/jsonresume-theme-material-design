@@ -32,6 +32,7 @@
     "@material/layout-grid": "^4.0.0",
     "@material/list": "^4.0.0",
     "@material/theme": "^4.0.0",
+    "@material/top-app-bar": "^4.0.0",
     "@material/typography": "^4.0.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",

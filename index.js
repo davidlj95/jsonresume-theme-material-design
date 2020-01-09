@@ -5,6 +5,7 @@ const FontawesomeHelper = require('./src/helpers/fontawesome.helper');
 const LocationHelper = require('./src/helpers/location.helper');
 const PreloadImageHelper = require('./src/helpers/preload-image.helper');
 const {levelToStarsHelper, levelDefaultHelper} = require('./src/helpers/level.helpers');
+const appTitleHelper = require('./src/helpers/app-title.helper');
 const tmp = require('tmp');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -51,6 +52,7 @@ function registerHelpers() {
     Handlebars.registerHelper("preloadImage", PreloadImageHelper);
     Handlebars.registerHelper("levelToStars", levelToStarsHelper);
     Handlebars.registerHelper("levelDefault", levelDefaultHelper);
+    Handlebars.registerHelper("appTitle", appTitleHelper);
 }
 
 async function bundleResumeHtml(resumeHtml) {

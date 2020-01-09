@@ -1,0 +1,21 @@
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed just-screen">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+            <span class="mdc-top-app-bar__title">
+                {{appTitle resume}}
+            </span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+               href="#" download="resume.html">
+                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Download">
+                    file_download
+                </button>
+            </a>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Print this page" onclick="window.print()">
+                print
+            </button>
+        </section>
+    </div>
+</header>
