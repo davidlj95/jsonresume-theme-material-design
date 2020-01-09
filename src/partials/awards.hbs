@@ -1,29 +1,42 @@
 {{#if resume.awards.length}}
-<section id="awards">
-	<h2>Awards</h2>
-	{{#each resume.awards}}
-	<div class="item">
-		{{#if title}}
-		<div class="title">
-			{{title}}
-		</div>
-		{{/if}}
-		{{#if date}}
-		<div class="date">
-			{{date}}
-		</div>
-		{{/if}}
-		{{#if awarder}}
-		<div class="awarder">
-			{{awarder}}
-		</div>
-		{{/if}}
-		{{#if summary}}
-		<div class="summary">
-			<p>{{summary}}</p>
-		</div>
-		{{/if}}
-	</div>
-	{{/each}}
-</section>
+    <section id="awards">
+        <div class="mdc-layout-grid title">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <h5>Awards</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                {{#each resume.awards}}
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell">
+                        <div class="award-card mdc-card mdc-card--outlined">
+                            <div class="mdc-card__header mdc-card__header--padded">
+                                <div class="mdc-card__header-texts">
+                                    {{#if title}}<h6>{{title}}</h6>{{/if}}
+                                    {{#if awarder}}<span class="mdc-typography--subtitle1">{{awarder}}</span>{{/if}}
+                                </div>
+                            </div>
+                            <ul class="mdc-card__list mdc-card__content--padded mdc-typography--subtitle1">
+                                {{#if date}}
+                                    <li class="mdc-card__feature">
+                                        <i class="mdc-card__feature--icon">calendar_today</i>
+                                        <span class="mdc-card__feature--text">
+                                            {{date}}
+                                        </span>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                                {{#if summary}}
+                                <div class="mdc-card__content mdc-card__content--padded mdc-typography--body1">
+                                    <p>{{summary}}</p>
+                                </div>
+                                {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
 {{/if}}
