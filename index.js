@@ -4,6 +4,7 @@ const Handlebars = require('handlebars');
 const FontawesomeHelper = require('./src/helpers/fontawesome.helper');
 const LocationHelper = require('./src/helpers/location.helper');
 const PreloadImageHelper = require('./src/helpers/preload-image.helper');
+const {skillLevelToStarsHelper, unknownSkillLevelHelper} = require('./src/helpers/skill-level.helpers');
 const tmp = require('tmp');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -48,6 +49,8 @@ function registerHelpers() {
     Handlebars.registerHelper("fontawesome", FontawesomeHelper);
     Handlebars.registerHelper("locationAsString", LocationHelper);
     Handlebars.registerHelper("preloadImage", PreloadImageHelper);
+    Handlebars.registerHelper("skillLevelToStars", skillLevelToStarsHelper);
+    Handlebars.registerHelper("skillLevelDefault", unknownSkillLevelHelper);
 }
 
 async function bundleResumeHtml(resumeHtml) {

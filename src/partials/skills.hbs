@@ -1,26 +1,46 @@
 {{#if resume.skills.length}}
-<section id="skills">
-	<h2>Skills</h2>
-	{{#each resume.skills}}
-	<div class="item">
-		{{#if name}}
-		<div class="name">
-			{{name}}
-		</div>
-		{{/if}}
-		{{#if level}}
-		<div class="level">
-			<em>{{level}}</em>
-		</div>
-		{{/if}}
-		{{#if keywords.length}}
-		<ul class="keywords">
-			{{#each keywords}}
-			<li>{{.}}</li>
-			{{/each}}
-		</ul>
-		{{/if}}
-	</div>
-	{{/each}}
-</section>
+    <section id="skills">
+        <div class="mdc-layout-grid title">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <h5>Skills</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                {{#each resume.skills}}
+                    <div class="mdc-layout-grid__cell">
+                        <div class="skill-card mdc-card mdc-card--outlined">
+                            <div class="mdc-card__header mdc-card__header--padded">
+                                <div class="mdc-card__header-texts">
+                                    {{#if name}}<h6>{{name}}</h6>{{/if}}
+                                    {{#if level}}
+                                        <span class="level-stars">{{skillLevelToStars level}}</span>
+                                        <span class="mdc-typography--subtitle1">{{skillLevelDefault level}}</span>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <div class="mdc-card__content chips">
+                                {{#if keywords.length}}
+                                    <div class="mdc-chip-set" role="grid">
+                                        {{#each keywords}}
+                                            <div class="mdc-chip" role="row">
+                                                <div class="mdc-chip__ripple"></div>
+                                                <span role="gridcell">
+                                                <span role="button" tabindex="0" class="mdc-chip__text">
+                                                    {{.}}
+                                                </span>
+                                                </span>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
 {{/if}}
