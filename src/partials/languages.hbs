@@ -1,19 +1,35 @@
 {{#if resume.languages.length}}
-<section id="languages">
-	<h2>Languages</h2>
-	{{#each resume.languages}}
-	<div class="item">
-		{{#if language}}
-		<div class="language">
-			{{language}}
-		</div>
-		{{/if}}
-		{{#if fluency}}
-		<div class="fluency">
-			<em>{{fluency}}</em>
-		</div>
-		{{/if}}
-	</div>
-	{{/each}}
-</section>
+    <section id="languages">
+        <div class="mdc-layout-grid title">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <h5>Languages</h5>
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                {{#each resume.languages}}
+                    <div class="mdc-layout-grid__cell">
+                        <div class="skill-card mdc-card mdc-card--outlined">
+                            <div class="mdc-card__header mdc-card__header--padded">
+                                {{#if flag}}
+                                    <div class="mdc-card__media mdc-card__media--circle--small">
+                                        <img src="{{flag}}" alt="flag">
+                                    </div>
+                                {{/if}}
+                                <div class="mdc-card__header-texts">
+                                    {{#if language}}<h6>{{language}}</h6>{{/if}}
+                                    {{#if fluency}}
+                                        <span class="level-stars">{{levelToStars fluency}}</span>
+                                        <span class="mdc-typography--subtitle1">{{levelDefault fluency}}</span>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
 {{/if}}

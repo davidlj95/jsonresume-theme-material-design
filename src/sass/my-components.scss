@@ -1,5 +1,6 @@
 @import "~@material/typography/mdc-typography";
 @import "functions";
+@import "my-theme";
 
 /**
  * View filters
@@ -74,8 +75,12 @@ h6 {
       @include mdc-card-media-circle();
     }
 
-    .mdc-card__media--circle-big > img {
+    .mdc-card__media--circle--big > img {
       @include mdc-card-media-circle(96px);
+    }
+
+    .mdc-card__media--circle--small > img {
+      @include mdc-card-media-circle(48px);
     }
 
     .mdc-card__header-texts {
@@ -166,4 +171,11 @@ h6 {
 .mdc-chip > a {
   text-decoration: none;
   color: inherit;
+}
+
+/**
+ * Level star rating
+ */
+.level-stars {
+  color: $stars-color;
 }

@@ -5,8 +5,10 @@ const LEVEL_MAP = {
     "beginner": 1,
     "early": 2,
     "competent": 3,
+    "fluent": 3,
     "advanced": 4,
     "expert": 5,
+    "native": 5,
 };
 
 const LEVELS = Array.from(Object.keys(LEVEL_MAP));
@@ -33,10 +35,11 @@ function getLevelStars(level) {
  *
  * To convert, the level names MUST follow this conventions:
  * https://github.com/jsonresume/resume-schema/issues/16#issuecomment-219698224
+ * Or a language fluency level (fluent, native)
  *
  * @param level
  */
-function skillLevelToStarsHelper(level) {
+function levelToStarsHelper(level) {
     if (isEmptyLevel(level)) {
         console.warn('Empty level passed');
         return "";
@@ -51,20 +54,27 @@ function skillLevelToStarsHelper(level) {
     }
 }
 
-function unknownSkillLevelHelper(level) {
+/**
+ * Returns the level title-cased if cannot be translated to stars
+ *
+ * @param level
+ * @returns {string}
+ */
+function levelDefaultHelper(level) {
     if (isEmptyLevel(level)) {
         console.warn('Empty level passed');
         return "";
     }
     const levelName = canonizeLevel(level);
-    if (!isLevelRecognized(level)) {
+    if (!isLevelRecognized(levelName)) {
        return levelName[0].toUpperCase() + levelName.slice(1);
     }
+    return "";
 }
 
 module.exports = {
-    skillLevelToStarsHelper,
-    unknownSkillLevelHelper,
+    levelToStarsHelper,
+    levelDefaultHelper,
 };
 
 

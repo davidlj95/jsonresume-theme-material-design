@@ -46,6 +46,7 @@ const DEFAULT_IMAGE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAg" +
 
 function getType(name) {
    if(name.endsWith('.png')) return 'image/png';
+   if(name.endsWith('.svg')) return 'image/svg+xml';
    if(name.endsWith('.jpg')) return 'image/jpg';
    if(name.endsWith('.jpeg')) return 'image/jpeg';
 }

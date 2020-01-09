@@ -10,14 +10,14 @@
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
                 {{#each resume.skills}}
-                    <div class="mdc-layout-grid__cell">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell">
                         <div class="skill-card mdc-card mdc-card--outlined">
                             <div class="mdc-card__header mdc-card__header--padded">
                                 <div class="mdc-card__header-texts">
                                     {{#if name}}<h6>{{name}}</h6>{{/if}}
                                     {{#if level}}
-                                        <span class="level-stars">{{skillLevelToStars level}}</span>
-                                        <span class="mdc-typography--subtitle1">{{skillLevelDefault level}}</span>
+                                        <span class="level-stars">{{levelToStars level}}</span>
+                                        <span class="mdc-typography--subtitle1">{{levelDefault level}}</span>
                                     {{/if}}
                                 </div>
                             </div>
