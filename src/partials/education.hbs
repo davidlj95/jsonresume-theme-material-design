@@ -31,7 +31,8 @@
                                     <li class="mdc-card__feature">
                                         <i class="mdc-card__feature--icon">date_range</i>
                                         <span class="mdc-card__feature--text">
-                                            {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} - {{endDate}}{{else}} - Present{{/if}}
+                                            {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}}
+                                            - {{endDate}}{{else}} - Present{{/if}}
                                         </span>
                                     </li>
                                 {{/if}}
@@ -43,8 +44,8 @@
                                 {{/if}}
                             </ul>
                             {{#if courses.length}}
-                                <noscript>
-                                    <div class="details">
+                                <div class="details just-screen">
+                                    <noscript>
                                         <hr class="mdc-divider">
                                         <p class="mdc-typography--headline6 mdc-card__content--padded">Courses</p>
                                         <ul class="mdc-list mdc-typography--body2">
@@ -52,11 +53,10 @@
                                                 <li class="mdc-list-item">{{.}}</li>
                                             {{/each}}
                                         </ul>
-                                    </div>
-                                </noscript>
-                                <div class="details just-screen">
+                                    </noscript>
                                     <div class="mdc-expansion-panel js-only" aria-expanded="false">
-                                        <div class="mdc-expansion-panel__summary mdc-typography--subtitle1">Courses</div>
+                                        <div class="mdc-expansion-panel__summary mdc-typography--subtitle1">Courses
+                                        </div>
                                         <div class="mdc-expansion-panel__details">
                                             <ul class="mdc-list mdc-typography--body2">
                                                 {{#each courses}}
