@@ -20,9 +20,16 @@ document.querySelectorAll('.mdc-expansion-panel').forEach((expansionPanel) => {
         }
     })
 });
-// Material inits
-import {MDCTopAppBar} from '@material/top-app-bar';
 
-// Instantiation
+// Material Drawer
+import {MDCDrawer} from "@material/drawer";
+const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+
+// Material Top app bar
+import {MDCTopAppBar} from '@material/top-app-bar';
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
+topAppBar.setScrollTarget(document.getElementById('resume'));
+topAppBar.listen('MDCTopAppBar:nav', () => {
+    drawer.open = !drawer.open;
+});

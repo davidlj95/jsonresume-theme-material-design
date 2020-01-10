@@ -14,23 +14,26 @@ function fixIconName(name) {
 }
 
 /**
- * @return {string}
+ * @return {Handlebars.SafeString}
  */
 module.exports = function FontawesomeHelper(iconType, iconName) {
     if (iconName.length === 0) {
         console.warn("Icon name is empty")
     }
     const fixedIconName = fixIconName(iconName);
+    let icons;
     if (iconType === "fab") {
-        const icons = require(`@fortawesome/free-brands-svg-icons`);
-        if (!Object.keys(icons).includes(fixedIconName)) {
-            console.warn(`Icon not found: ${fixedIconName}`);
-            return "";
-        }
-        const icon = icons[fixedIconName];
-        return new Handlebars.SafeString(fontawesome.icon(icon).html);
+        icons = require(`@fortawesome/free-brands-svg-icons`);
+    } else if (iconType === "fa") {
+        icons = require(`@fortawesome/free-solid-svg-icons`);
     } else {
         console.warn(`Unknown icon type ${iconType}`);
         return "";
     }
+    if (!Object.keys(icons).includes(fixedIconName)) {
+        console.warn(`Icon not found: ${fixedIconName}`);
+        return "";
+    }
+    const icon = icons[fixedIconName];
+    return new Handlebars.SafeString(fontawesome.icon(icon).html);
 };

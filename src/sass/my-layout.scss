@@ -1,25 +1,48 @@
 body, html {
   margin: 0;
   padding: 0;
+  // Scroll
   scroll-behavior: smooth;
+  scroll-padding-top: 72px; // 64px for the top app bar with 8px padding
+  // Drawer below top app bar
+  // https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer#dismissible-drawer-below-top-app-bar
+  height: 100vh;
+  overflow: auto;
 }
 
 #resume {
   display: flex;
   flex-direction: column;
-  position: relative;
-
-  @media screen {
-    top: 56px;
-  }
 }
 
+
+// Drawer below top app bar
+// https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer#dismissible-drawer-below-top-app-bar
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.mdc-top-app-bar {
+  position: absolute;
+  // only apply this style if below top app bar
+  z-index: 7;
+}
+
+// All sections
 section {
   .title {
-
+    // Grid with no top or bottom paddings
     padding-top: 0;
     padding-bottom: 0;
 
+    // Title without paddings
     h5 {
       margin: 0;
     }
