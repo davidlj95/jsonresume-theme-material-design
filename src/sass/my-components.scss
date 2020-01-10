@@ -7,13 +7,13 @@
  */
 @media not print {
   .just-print {
-    display: none;
+    display: none !important;
   }
 }
 
 @media not screen {
   .just-screen {
-    display: none;
+    display: none !important;
   }
 }
 
