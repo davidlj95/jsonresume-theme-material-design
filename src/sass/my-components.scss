@@ -1,48 +1,7 @@
-@import "~@material/typography/mdc-typography";
 @import "functions";
 @import "my-theme";
 
-/**
- * View filters
- */
-@media not print {
-  .just-print {
-    display: none !important;
-  }
-}
 
-@media not screen {
-  .just-screen {
-    display: none !important;
-  }
-}
-
-/**
- * Material Typography
- */
-h1 {
-  @include mdc-typography("headline1");
-}
-
-h2 {
-  @include mdc-typography("headline2");
-}
-
-h3 {
-  @include mdc-typography("headline3");
-}
-
-h4 {
-  @include mdc-typography("headline4");
-}
-
-h5 {
-  @include mdc-typography("headline5");
-}
-
-h6 {
-  @include mdc-typography("headline6");
-}
 
 /**
  * Material Cards

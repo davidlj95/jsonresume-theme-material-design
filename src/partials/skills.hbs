@@ -3,7 +3,7 @@
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                    <h5>Skills</h5>
+                    <span class="mdc-typography--headline5">Skills</span>
                 </div>
             </div>
         </div>
@@ -14,7 +14,7 @@
                         <div class="skill-card mdc-card mdc-card--outlined">
                             <div class="mdc-card__header mdc-card__header--padded">
                                 <div class="mdc-card__header-texts">
-                                    {{#if name}}<h6>{{name}}</h6>{{/if}}
+                                    {{#if name}}<span class="mdc-typography--headline6">{{name}}</span>{{/if}}
                                     {{#if level}}
                                         <span class="level-stars">{{levelToStars level}}</span>
                                         <span class="mdc-typography--subtitle1">{{levelDefault level}}</span>

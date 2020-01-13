@@ -12,10 +12,10 @@
                             {{/if}}
                             <div class="mdc-card__header-texts">
                                 {{#if name}}
-                                    <h6>{{name}}</h6>
+                                    <span class="mdc-typography--headline6">{{name}}</span>
                                 {{/if}}
                                 {{#if label}}
-                                    <span class="mdc-typography mdc-typography--subtitle2">{{label}}</span>
+                                    <span class="mdc-typography--subtitle2">{{label}}</span>
                                 {{/if}}
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                         <a href="tel:{{phone}}" target="_blank">
                                             <i class="mdc-chip__icon material-icons mdc-chip__icon--leading">phone</i>
                                             <span role="gridcell">
-                                <span role="button" tabindex="0" class="mdc-chip__text">{{phone}}</span>
+                                <span role="button" tabindex="0" class="mdc-chip__text mdc-typography--subtitle1">{{phone}}</span>
                             </span>
                                         </a>
                                     </div>

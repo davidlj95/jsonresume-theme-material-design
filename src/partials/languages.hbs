@@ -3,7 +3,7 @@
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                    <h5>Languages</h5>
+                    <span class="mdc-typography--headline5">Languages</span>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                                     </div>
                                 {{/if}}
                                 <div class="mdc-card__header-texts">
-                                    {{#if language}}<h6>{{language}}</h6>{{/if}}
+                                    {{#if language}}<span class="mdc-typography--headline6">{{language}}</span>{{/if}}
                                     <span>
                                     {{#if fluency}}
                                         <span class="level-stars">{{levelToStars fluency}}</span>

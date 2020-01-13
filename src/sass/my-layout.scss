@@ -1,6 +1,11 @@
+/**
+ * Main content
+ */
+
 body, html {
   margin: 0;
   padding: 0;
+
   // Scroll
   scroll-behavior: smooth;
   scroll-padding-top: 72px; // 64px for the top app bar with 8px padding
@@ -18,6 +23,20 @@ body, html {
   flex-direction: column;
 }
 
+/**
+ * View filters
+ */
+@media not print {
+  .just-print {
+    display: none !important;
+  }
+}
+
+@media not screen {
+  .just-screen {
+    display: none !important;
+  }
+}
 
 // Drawer below top app bar
 // https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer#dismissible-drawer-below-top-app-bar
@@ -54,14 +73,9 @@ body, html {
 
 // All sections
 section {
-  .title {
+  .mdc-layout-grid.title {
     // Grid with no top or bottom paddings
     padding-top: 0;
     padding-bottom: 0;
-
-    // Title without paddings
-    h5 {
-      margin: 0;
-    }
   }
 }
