@@ -1,5 +1,5 @@
 {{#if resume.education.length}}
-    <section id="education">
+    <section id="education" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections "education"}}just-screen{{/inArray}}"{{/if}}>
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
