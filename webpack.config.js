@@ -1,9 +1,13 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 module.exports = {
-    entry: ['./src/resume.js', './src/sass/app.scss'],
+    entry: [
+        path.join(__dirname, 'src', 'resume.js'),
+        path.join(__dirname, 'src', 'sass', 'app.scss')
+    ],
     output: {
         filename: 'bundle.js',
     },
