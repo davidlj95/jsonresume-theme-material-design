@@ -1,0 +1,15 @@
+@import "functions";
+
+@page {
+  size: portrait;
+  @top-center {
+    content: element(pageHeader);
+  }
+  @bottom-center {
+    content: element(pageFooter);
+  }
+}
+
+
+
+

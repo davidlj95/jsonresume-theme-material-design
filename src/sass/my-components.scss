@@ -1,12 +1,16 @@
+@import "~@material/typography/mdc-typography";
 @import "functions";
 @import "my-theme";
-
-
 
 /**
  * Material Cards
  */
 .mdc-card {
+
+  @media print {
+    page-break-inside: avoid;
+    height: 100%;
+  }
 
   // Primary action clickable
   > a {
@@ -36,6 +40,9 @@
 
     .mdc-card__media--circle--big > img {
       @include mdc-card-media-circle(96px);
+      @media print {
+        @include mdc-card-media-circle(15mm);
+      }
     }
 
     .mdc-card__media--circle--small > img {
@@ -47,10 +54,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-
-      h1, h2, h3, h4, h5, h6 {
-        margin: 0;
-      }
 
       .mdc-typography--subtitle1 {
         color: rgba(0, 0, 0, 0.6);
@@ -64,6 +67,7 @@
 
   p {
     margin: 0;
+    page-break-inside: avoid;
   }
 
   .mdc-card__content--padded {
@@ -82,6 +86,9 @@
     }
 
     .mdc-card__feature--text {
+      @media print {
+        @include mdc-typography("subtitle2");
+      }
     }
   }
 
@@ -130,6 +137,20 @@
 .mdc-chip > a {
   text-decoration: none;
   color: inherit;
+}
+
+/**
+ * Material Layout Grid
+ */
+.mdc-layout-grid {
+  @media print {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .mdc-layout-grid__cell {
+    page-break-inside: avoid;
+  }
 }
 
 /**

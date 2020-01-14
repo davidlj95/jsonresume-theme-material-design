@@ -1,6 +1,35 @@
 #work {
 
+  //.mdc-layout-grid__cell {
+  //  @media print {
+  //    width: auto;
+  //    grid-column-end: span 4;
+  //  }
+  //}
+
   .work-card {
+
+    .mdc-card__header {
+      @media print {
+        padding-bottom: 0;
+        .mdc-card__media {
+          display: none;
+        }
+      }
+    }
+
+    @media print {
+      .mdc-card__feature {
+        padding-top: 0;
+      }
+
+      .mdc-card__feature--text {
+        color: rgba(0, 0, 0, 0.87);
+      }
+      .mdc-card__feature--icon {
+        display: none;
+      }
+    }
 
     .mdc-expansion-panel__summary {
       letter-spacing: 1px;

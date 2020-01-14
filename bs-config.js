@@ -20,6 +20,7 @@ module.exports = {
         "index.js",
         "src/**/*.*",
         "resume.json",
+        "options.js",
     ],
     "watchEvents": [
         "change"

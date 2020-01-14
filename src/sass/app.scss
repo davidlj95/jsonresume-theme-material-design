@@ -14,9 +14,16 @@
 @import "my-layout";
 @import "my-components";
 
+@import "print";
+
+@import "page-header";
+
 @import "drawer";
 @import "basics";
+@import "languages";
 @import "work";
 @import "education";
 @import "skills";
 @import "awards";
+
+@import "page-footer";

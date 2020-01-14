@@ -10,17 +10,18 @@
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
                 {{#each resume.education}}
-                    <div class="mdc-layout-grid__cell">
+                    <div class="mdc-layout-grid__cell {{#if printHidden}}just-screen{{/if}}">
                         <div class="mdc-card education-card mdc-card--outlined">
                             {{#if website}}<a href="{{website}}">{{/if}}
                             <div class="mdc-card__header mdc-card__header--padded {{#if website}}mdc-card__primary-action{{/if}}">
                                 {{#if image}}
-                                    <div class="mdc-card__media mdc-card__media--circle">
+                                    <div class="mdc-card__media mdc-card__media--circle {{#unless shortName}}just-screen{{/unless}}">
                                         <img src="{{preloadImage image}}" alt="{{#if company}}{{company}}{{/if}} logo"/>
                                     </div>
                                 {{/if}}
                                 <div class="mdc-card__header-texts">
-                                    {{#if institution}}<span class="mdc-typography--headline6">{{institution}}</span>{{/if}}
+                                    {{#if institution}}<span class="mdc-typography--headline6 {{#if shortName}}just-screen{{/if}}">{{institution}}</span>{{/if}}
+                                    {{#if shortName}}<span class="mdc-typography--headline6 {{#if institution}}just-print{{/if}}">{{shortName}}</span>{{/if}}
                                     {{#if studyType}}<span class="mdc-typography--subtitle1">{{studyType}}</span>{{/if}}
                                     {{#if area}}<span class="mdc-typography--subtitle2">{{area}}</span>{{/if}}
                                 </div>

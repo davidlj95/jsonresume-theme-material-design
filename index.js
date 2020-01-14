@@ -9,6 +9,7 @@ const appTitleHelper = require('./src/helpers/app-title.helper');
 const tmp = require('tmp');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
+const requireUncached = require('require-uncached');
 
 function render(resume) {
     return bundleResumeHtml(
@@ -26,8 +27,10 @@ function renderTemplate(resume) {
     registerPartials(partialsPath);
     registerHelpers();
 
+    const options = requireUncached('./options');
     return Handlebars.compile(template)({
-        resume: resume,
+        resume,
+        options
     });
 }
 
@@ -53,6 +56,7 @@ function registerHelpers() {
     Handlebars.registerHelper("levelToStars", levelToStarsHelper);
     Handlebars.registerHelper("levelDefault", levelDefaultHelper);
     Handlebars.registerHelper("appTitle", appTitleHelper);
+    require('handlebars-helpers')();
 }
 
 async function bundleResumeHtml(resumeHtml) {
@@ -72,7 +76,7 @@ async function bundleResumeHtml(resumeHtml) {
         const resultHtml = fs.readFileSync(resultPath);
         return resultHtml.toString();
     } catch (e) {
-        return "Webpack did not bundle properly";
+        return `Webpack did not bundle properly: ${e}`;
     } finally {
         tmpDirObj.removeCallback();
     }

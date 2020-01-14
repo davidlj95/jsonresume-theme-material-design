@@ -1,0 +1,16 @@
+#page-header {
+  position: running(pageHeader);
+  text-align: center;
+  padding: 7px 0;
+
+  border-width: 1px;
+  border-color: darken(lightgreen, 70%);
+  border-style: solid none solid none;
+
+  background-color: lightgreen;
+  color: darken(lightgreen, 90%);
+
+  svg {
+    height: 12px;
+  }
+}

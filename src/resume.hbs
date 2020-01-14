@@ -9,13 +9,35 @@
             .js-only {
                 display: none !important;
             }
+
             #content.mdc-drawer-app-content {
                 margin-left: 0;
             }
         </style>
     </noscript>
+    {{#if options.printPreview.enabled}}
+        <style>
+            /** Simulate an A4 sheet **/
+            html {
+                background-color: gray;
+            }
+
+            body {
+                background-color: white;
+                margin: 0 auto !important;
+            }
+            body.A3.landscape          { max-width: 420mm }
+            body.A3, body.A4.landscape { max-width: 297mm }
+            body.A4, body.A5.landscape { max-width: 210mm }
+            body.A5                    { max-width: 148mm }
+            body.letter, body.legal    { max-width: 216mm }
+            body.letter.landscape      { max-width: 280mm }
+            body.legal.landscape       { max-width: 357mm }
+        </style>
+    {{/if}}
 </head>
-<body>
+<body class="{{#if options.printPreview.enabled}}{{#if options.printPreview.size}}{{options.printPreview.size}}{{else}}A4{{/if}}{{/if}}">
+{{> page-header }}
 {{> top-app-bar }}
 {{> drawer }}
 <div id="content" class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
@@ -32,5 +54,6 @@
         {{!> partials/references }}
     </main>
 </div>
+{{> page-footer }}
 </body>
 </html>

@@ -1,5 +1,6 @@
 {{#if resume.languages.length}}
-    <section id="languages">
+    <section id="languages" {{#if resume.print.hiddenSections}}class="{{#inArray resume.print.hiddenSections
+                                                                                "languages"}}just-screen{{/inArray}}"{{/if}}>
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
