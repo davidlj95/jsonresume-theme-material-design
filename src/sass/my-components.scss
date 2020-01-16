@@ -83,6 +83,11 @@
       font-family: 'Material Icons', monospace;
       font-style: normal;
       margin-right: 8px;
+
+      > svg {
+        height: 17.5px;
+        width: 17.5px;
+      }
     }
 
     .mdc-card__feature--text {
@@ -95,6 +100,7 @@
   ul.mdc-card__list {
     list-style: none;
     margin: 0;
+    padding-left: 0;
   }
 
   .mdc-card__action-buttons {

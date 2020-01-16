@@ -1,5 +1,6 @@
 {{#if resume.education.length}}
-    <section id="education" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections "education"}}just-screen{{/inArray}}"{{/if}}>
+    <section id="education" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections
+                                                                                     "education"}}just-screen{{/inArray}}"{{/if}}>
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
@@ -13,37 +14,43 @@
                     <div class="mdc-layout-grid__cell {{#if printHidden}}just-screen{{/if}}">
                         <div class="mdc-card education-card mdc-card--outlined">
                             {{#if website}}<a href="{{website}}">{{/if}}
-                            <div class="mdc-card__header mdc-card__header--padded {{#if website}}mdc-card__primary-action{{/if}}">
+                            <div class="mdc-card__header mdc-card__header--padded {{#if
+                                    website}}mdc-card__primary-action{{/if}}">
                                 {{#if image}}
-                                    <div class="mdc-card__media mdc-card__media--circle {{#unless shortName}}just-screen{{/unless}}">
+                                    <div class="mdc-card__media mdc-card__media--circle {{#unless
+                                            shortName}}just-screen{{/unless}}">
                                         <img src="{{preloadImage image}}" alt="{{#if company}}{{company}}{{/if}} logo"/>
                                     </div>
                                 {{/if}}
                                 <div class="mdc-card__header-texts">
-                                    {{#if institution}}<span class="mdc-typography--headline6 {{#if shortName}}just-screen{{/if}}">{{institution}}</span>{{/if}}
-                                    {{#if shortName}}<span class="mdc-typography--headline6 {{#if institution}}just-print{{/if}}">{{shortName}}</span>{{/if}}
+                                    {{#if institution}}<span class="mdc-typography--headline6 {{#if
+                                            shortName}}just-screen{{/if}}">{{institution}}</span>{{/if}}
+                                    {{#if shortName}}<span class="mdc-typography--headline6 {{#if
+                                            institution}}just-print{{/if}}">{{shortName}}</span>{{/if}}
                                     {{#if studyType}}<span class="mdc-typography--subtitle1">{{studyType}}</span>{{/if}}
                                     {{#if area}}<span class="mdc-typography--subtitle2">{{area}}</span>{{/if}}
                                 </div>
                             </div>
                             {{#if website}}</a>{{/if}}
-                            <ul class="mdc-card__list mdc-card__content--padded mdc-typography--subtitle1">
-                                {{#if startDate}}
-                                    <li class="mdc-card__feature">
-                                        <i class="mdc-card__feature--icon">date_range</i>
-                                        <span class="mdc-card__feature--text">
+                            <div class="mdc-card__content mdc-card__content--padded">
+                                <ul class="mdc-card__list mdc-typography--subtitle1">
+                                    {{#if startDate}}
+                                        <li class="mdc-card__feature">
+                                            <i class="mdc-card__feature--icon">date_range</i>
+                                            <span class="mdc-card__feature--text">
                                             {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}}
-                                            - {{endDate}}{{else}} - Present{{/if}}
+                                                - {{endDate}}{{else}} - Present{{/if}}
                                         </span>
-                                    </li>
-                                {{/if}}
-                                {{#if gpa}}
-                                    <li class="mdc-card__feature">
-                                        <i class="mdc-card__feature--icon">grade</i>
-                                        <span class="mdc-card__feature--text">{{gpa}}</span>
-                                    </li>
-                                {{/if}}
-                            </ul>
+                                        </li>
+                                    {{/if}}
+                                    {{#if gpa}}
+                                        <li class="mdc-card__feature">
+                                            <i class="mdc-card__feature--icon">grade</i>
+                                            <span class="mdc-card__feature--text">{{gpa}}</span>
+                                        </li>
+                                    {{/if}}
+                                </ul>
+                            </div>
                             {{#if courses.length}}
                                 <div class="details just-screen">
                                     <noscript>

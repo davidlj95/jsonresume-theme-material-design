@@ -13,8 +13,7 @@
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet">
                         <div class="work-card mdc-card mdc-card--outlined">
                             {{#if website}}<a href="{{website}}" target="_blank">{{/if}}
-                            <div class="{{#if
-                                    website}}mdc-card__primary-action{{/if}} mdc-card__header mdc-card__header--padded"
+                            <div class="{{#if website}}mdc-card__primary-action{{/if}} mdc-card__header mdc-card__header--padded"
                                  {{#if website}}tabindex="0"{{/if}}>
                                 {{#if image}}
                                     <div class="mdc-card__media mdc-card__media--circle">
@@ -35,7 +34,7 @@
                                         <i class="mdc-card__feature--icon">date_range</i>
                                         <span class="mdc-card__feature--text">
                                         {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}}
-                                            - {{endDate}}{{else}} - Present{{/if}}
+                                            - {{endDate}}{{else}}{{#if startDate}} - Present{{/if}}{{/if}}
                                         </span>
                                     </p>
                                 {{/if}}

@@ -1,0 +1,108 @@
+<section id="projects" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections
+                                                                                "projects"}}just-screen{{/inArray}}"{{/if}}>
+    <div class="mdc-layout-grid title">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <span class="mdc-typography--headline5">Projects</span>
+            </div>
+        </div>
+    </div>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            {{#each resume.projects}}
+                <div class="mdc-layout-grid__cell {{#if printHidden}}just-screen{{/if}}">
+                    <div class="project-card mdc-card mdc-card--outlined">
+                        {{#if url}}<a href="{{url}}" target="_blank">{{/if}}
+                        <div class="{{#if
+                                url}}mdc-card__primary-action{{/if}} mdc-card__header mdc-card__header--padded"
+                             tabindex="0">
+                            {{#if image}}
+                                <div class="mdc-card__media mdc-card__media--circle">
+                                    <img src="{{preloadImage image}}" alt="{{#if name}}{{name}}{{/if}} logo"/>
+                                </div>
+                            {{/if}}
+                            <div class="mdc-card__header-texts">
+                                {{#if name}}<span class="mdc-typography--headline6">{{name}}</span>{{/if}}
+                                {{#if entity}}
+                                    <span class="mdc-typography mdc-typography--subtitle1">For {{entity}}</span>
+                                {{/if}}
+                                <span>
+                                    {{#if startDate}}
+                                        <span class="mdc-typography mdc-typography--subtitle2">{{startDate}}</span>{{/if}}
+                                    {{#if endDate}}
+                                        <span class="mdc-typography mdc-typography--subtitle2"> - {{endDate}}</span>
+                                    {{else}}
+                                        {{#if startDate}}
+                                            <span class="mdc-typography mdc-typography--subtitle2"> - Present</span>{{/if}}
+                                    {{/if}}
+                                </span>
+                            </div>
+                        </div>
+                        {{#if url}}</a>{{/if}}
+                        {{#if roles.length}}
+                            <div class="mdc-card__content mdc-card__content--padded mdc-typography--body1">
+                                <ul class="mdc-card__list mdc-typography--subtitle1">
+                                    {{#each roles}}
+                                        <li class="mdc-card__feature">
+                                            <i class="mdc-card__feature--icon">
+                                                {{fontawesome "fa" "HatCowboySide"}}
+                                            </i>
+                                            <span class="mdc-card__feature--text">
+                                                {{.}}
+                                            </span>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        {{/if}}
+                        {{#if description}}
+                            <div class="mdc-card__content mdc-card__content--padded mdc-typography--body1">
+                                {{description}}
+                            </div>
+                        {{/if}}
+                        {{#if keywords}}
+                            <div class="mdc-card__content mdc-typography--subtitle1">
+                                <div class="mdc-chip-set" role="grid">
+                                    {{#each keywords}}
+                                        <div class="mdc-chip" role="row">
+                                            <div class="mdc-chip__ripple"></div>
+                                                <span role="gridcell">
+                                                    <span role="button" tabindex="0" class="mdc-chip__text">{{.}}</span>
+                                                </span>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        {{/if}}
+                        {{#if highlights.length}}
+                            <div class="details just-screen">
+                                <noscript>
+                                    <hr class="mdc-divider">
+                                    <p class="mdc-typography--headline6 mdc-card__content--padded">
+                                        Highlights</p>
+                                    <ul class="mdc-list mdc-typography--body2">
+                                        {{#each highlights}}
+                                            <li class="mdc-list-item">{{.}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </noscript>
+                                <div class="mdc-expansion-panel js-only" aria-expanded="false">
+                                    <div class="mdc-expansion-panel__summary mdc-typography--subtitle1">
+                                        Highlights
+                                    </div>
+                                    <div class="mdc-expansion-panel__details">
+                                        <ul class="mdc-list mdc-typography--body2">
+                                            {{#each highlights}}
+                                                <li class="mdc-list-item">{{.}}</li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

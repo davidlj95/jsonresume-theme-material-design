@@ -9,7 +9,9 @@
             {{/if}}
             {{#if resume.work.length}}
                 <a class="mdc-list-item" href="#work">
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">work</i>
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "Building"}}
+                    </i>
                     <span class="mdc-list-item__text">Work</span>
                 </a>
             {{/if}}
@@ -35,6 +37,14 @@
                         {{fontawesome "fa" "Brain"}}
                     </i>
                     <span class="mdc-list-item__text">Skills</span>
+                </a>
+            {{/if}}
+            {{#if resume.projects.length}}
+                <a class="mdc-list-item" href="#projects">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "Briefcase"}}
+                    </i>
+                    <span class="mdc-list-item__text">Projects</span>
                 </a>
             {{/if}}
             {{#if resume.languages.length}}
