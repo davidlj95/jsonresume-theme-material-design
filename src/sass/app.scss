@@ -10,6 +10,8 @@
 @import "mdc-expansion";
 @import "~@material/layout-grid/mdc-layout-grid";
 @import "~@material/top-app-bar/mdc-top-app-bar";
+@import "~@material/dialog/mdc-dialog";
+@import "~@material/button/mdc-button";
 
 @import "my-layout";
 @import "my-components";
@@ -28,3 +30,4 @@
 @import "skills";
 
 @import "page-footer";
+@import "download-dialog";

@@ -158,6 +158,18 @@
     page-break-inside: avoid;
   }
 }
+/**
+ * Material List
+ */
+.mdc-list {
+  .mdc-list-item {
+    .mdc-list-item__graphic > svg {
+      height: 24px;
+      width: 24px;
+      color: rgba(0,0,0,.84);
+    }
+  }
+}
 
 /**
  * Level star rating
@@ -165,3 +177,5 @@
 .level-stars {
   color: $stars-color;
 }
+
+

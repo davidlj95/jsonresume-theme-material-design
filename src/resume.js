@@ -54,19 +54,19 @@ const closeDrawer = () => {
 };
 
 const destroyElements = () => {
-    if(drawer) drawer.destroy();
-    if(list) list.destroy();
-    if(topAppBar) topAppBar.destroy();
+    if (drawer) drawer.destroy();
+    if (list) list.destroy();
+    if (topAppBar) topAppBar.destroy();
 };
 
 const getScrims = () => {
-    const scrims = document.getElementsByClassName('mdc-drawer-scrim')
+    const scrims = document.getElementsByClassName('mdc-drawer-scrim');
     return Array.from(scrims);
 };
 
 const createScrim = () => {
     const scrims = getScrims();
-    if(!scrims.length) {
+    if (!scrims.length) {
         drawerElement.insertAdjacentHTML("afterend", "<div class=\"mdc-drawer-scrim js-only\"></div>");
     }
 };
@@ -132,11 +132,14 @@ const resizeHandler = () => {
 };
 window.addEventListener('resize', resizeHandler);
 
-// Legacy
-// const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
-// const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-// const topAppBar = new MDCTopAppBar(topAppBarElement);
-// topAppBar.setScrollTarget(document.getElementById('resume'));
-// topAppBar.listen('MDCTopAppBar:nav', () => {
-//     drawer.open = !drawer.open;
-// });
+import {MDCDialog} from '@material/dialog';
+
+/** Material Dialog **/
+const downloadDialogList = new MDCList(document.querySelector('.mdc-dialog .mdc-list'));
+window.downloadDialog = new MDCDialog(document.querySelector('.mdc-dialog'));
+window.downloadDialog.open();
+
+window.downloadDialog.listen('MDCDialog:opened', () => {
+    downloadDialogList.layout();
+});
+

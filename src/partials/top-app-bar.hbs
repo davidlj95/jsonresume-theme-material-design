@@ -7,13 +7,31 @@
             </span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end js-only" role="toolbar">
-            <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
-               href="#" download="resume.html">
-                <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Download">
+            {{#if resume.meta.pdfUrl}}
+                <button class="js-only material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                        aria-label="Download"
+                        type="button" onclick="downloadDialog.open()">
                     file_download
                 </button>
-            </a>
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Print this page" onclick="window.print()">
+                <noscript>
+                    <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+                       href="#" download="resume.html">
+                        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                                aria-label="Download">
+                            file_download
+                        </button>
+                    </a>
+                </noscript>
+            {{else}}
+                <a onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+                   href="#" download="resume.html">
+                    <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Download">
+                        file_download
+                    </button>
+                </a>
+            {{/if}}
+            <button class="js-only material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Print this page" onclick="window.print()">
                 print
             </button>
         </section>
