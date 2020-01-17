@@ -10,7 +10,7 @@ const tmp = require('tmp');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const requireUncached = require('require-uncached');
-const helpers = require('handlebars-helpers')();
+const helpers = require('handlebars-helpers');
 
 async function render(resume) {
     return bundleResumeHtml(
@@ -57,6 +57,9 @@ function registerHelpers() {
     Handlebars.registerHelper("levelToStars", levelToStarsHelper);
     Handlebars.registerHelper("levelDefault", levelDefaultHelper);
     Handlebars.registerHelper("appTitle", appTitleHelper);
+    helpers({
+        handlebars: Handlebars
+    });
 }
 
 async function bundleResumeHtml(resumeHtml) {
