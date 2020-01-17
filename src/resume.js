@@ -137,7 +137,6 @@ import {MDCDialog} from '@material/dialog';
 /** Material Dialog **/
 const downloadDialogList = new MDCList(document.querySelector('.mdc-dialog .mdc-list'));
 window.downloadDialog = new MDCDialog(document.querySelector('.mdc-dialog'));
-window.downloadDialog.open();
 
 window.downloadDialog.listen('MDCDialog:opened', () => {
     downloadDialogList.layout();
