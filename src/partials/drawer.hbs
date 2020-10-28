@@ -39,20 +39,20 @@
                     <span class="mdc-list-item__text">Awards</span>
                 </a>
             {{/if}}
-            {{#if resume.skills.length}}
-                <a class="mdc-list-item" href="#skills">
-                    <i class="mdc-list-item__graphic" aria-hidden="true">
-                        {{fontawesome "fa" "Brain"}}
-                    </i>
-                    <span class="mdc-list-item__text">Skills</span>
-                </a>
-            {{/if}}
             {{#if resume.projects.length}}
                 <a class="mdc-list-item" href="#projects">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "Briefcase"}}
                     </i>
                     <span class="mdc-list-item__text">Projects</span>
+                </a>
+            {{/if}}
+            {{#if resume.skills.length}}
+                <a class="mdc-list-item" href="#skills">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "Brain"}}
+                    </i>
+                    <span class="mdc-list-item__text">Skills</span>
                 </a>
             {{/if}}
             {{#if resume.languages.length}}
