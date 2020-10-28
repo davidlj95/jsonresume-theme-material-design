@@ -15,6 +15,14 @@
                     <span class="mdc-list-item__text">Work</span>
                 </a>
             {{/if}}
+            {{#if resume.volunteer.length}}
+                <a class="mdc-list-item" href="#volunteer">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "hands-helping"}}
+                    </i>
+                    <span class="mdc-list-item__text">Volunteer</span>
+                </a>
+            {{/if}}            
             {{#if resume.education.length}}
                 <a class="mdc-list-item" href="#education">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
