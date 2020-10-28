@@ -13,9 +13,20 @@ const requireUncached = require('require-uncached');
 const helpers = require('handlebars-helpers');
 
 async function render(resume) {
+    fixResumeSchemaChanges(resume)
     return bundleResumeHtml(
         renderTemplate(resume)
     );
+}
+
+function fixResumeSchemaChanges(resume) {
+    if (resume && resume.work && resume.work.length) {
+        resume.work.map(w => {
+            if (w.url) return
+            if (!w.website) return
+            w.url = w.website
+        })
+    }
 }
 
 function renderTemplate(resume) {
