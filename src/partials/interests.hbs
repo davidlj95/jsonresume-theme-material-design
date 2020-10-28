@@ -1,21 +1,44 @@
 {{#if resume.interests.length}}
-<section id="interests">
-	<h2>Interests</h2>
-	{{#each resume.interests}}
-	<div class="item">
-		{{#if name}}
-		<div class="name">
-			{{name}}
+<section id="interests"
+	{{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections "interests"}}just-screen{{/inArray}}"
+	{{/if}}>
+	<div class="mdc-layout-grid title">
+		<div class="mdc-layout-grid__inner">
+			<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+				<span class="mdc-typography--headline5">Interests</span>
+			</div>
 		</div>
-		{{/if}}
-		{{#if keywords.length}}
-		<ul class="keywords">
-			{{#each keywords}}
-			<li>{{.}}</li>
-			{{/each}}
-		</ul>
-		{{/if}}
 	</div>
-	{{/each}}
+	<div class="mdc-layout-grid cards">
+		<div class="mdc-layout-grid__inner">
+			{{#each resume.interests}}
+			<div class="mdc-layout-grid__cell mdc-layout-grid__cell">
+				<div class="skill-card mdc-card mdc-card--outlined">
+					<div class="mdc-card__header mdc-card__header--padded">
+						<div class="mdc-card__header-texts">
+							{{#if name}}<span class="mdc-typography--headline6">{{name}}</span>{{/if}}
+						</div>
+					</div>
+					<div class="mdc-card__content chips">
+						{{#if keywords.length}}
+						<div class="mdc-chip-set" role="grid">
+							{{#each keywords}}
+							<div class="mdc-chip" role="row">
+								<div class="mdc-chip__ripple"></div>
+								<span role="gridcell">
+									<span role="button" tabindex="0" class="mdc-chip__text">
+										{{.}}
+									</span>
+								</span>
+							</div>
+							{{/each}}
+						</div>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
 </section>
 {{/if}}
