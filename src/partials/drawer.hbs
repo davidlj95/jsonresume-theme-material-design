@@ -15,6 +15,14 @@
                     <span class="mdc-list-item__text">Work</span>
                 </a>
             {{/if}}
+            {{#if resume.volunteer.length}}
+                <a class="mdc-list-item" href="#volunteer">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "handshake"}}
+                    </i>
+                    <span class="mdc-list-item__text">Volunteer</span>
+                </a>
+            {{/if}}            
             {{#if resume.education.length}}
                 <a class="mdc-list-item" href="#education">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
@@ -31,14 +39,6 @@
                     <span class="mdc-list-item__text">Awards</span>
                 </a>
             {{/if}}
-            {{#if resume.skills.length}}
-                <a class="mdc-list-item" href="#skills">
-                    <i class="mdc-list-item__graphic" aria-hidden="true">
-                        {{fontawesome "fa" "Brain"}}
-                    </i>
-                    <span class="mdc-list-item__text">Skills</span>
-                </a>
-            {{/if}}
             {{#if resume.projects.length}}
                 <a class="mdc-list-item" href="#projects">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
@@ -47,12 +47,28 @@
                     <span class="mdc-list-item__text">Projects</span>
                 </a>
             {{/if}}
+            {{#if resume.skills.length}}
+                <a class="mdc-list-item" href="#skills">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "Brain"}}
+                    </i>
+                    <span class="mdc-list-item__text">Skills</span>
+                </a>
+            {{/if}}
             {{#if resume.languages.length}}
                 <a class="mdc-list-item" href="#languages">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">language</i>
                     <span class="mdc-list-item__text">Languages</span>
                 </a>
             {{/if}}
+            {{#if resume.interests.length}}
+                <a class="mdc-list-item" href="#interests">
+                    <i class="mdc-list-item__graphic" aria-hidden="true">
+                        {{fontawesome "fa" "biking"}}
+                    </i>
+                    <span class="mdc-list-item__text">Interests</span>
+                </a>
+            {{/if}}           
         </nav>
     </div>
 </aside>

@@ -12,9 +12,9 @@
                 {{#each resume.work}}
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet">
                         <div class="work-card mdc-card mdc-card--outlined">
-                            {{#if website}}<a href="{{website}}" target="_blank">{{/if}}
-                            <div class="{{#if website}}mdc-card__primary-action{{/if}} mdc-card__header mdc-card__header--padded"
-                                 {{#if website}}tabindex="0"{{/if}}>
+                            {{#if url}}<a href="{{url}}" target="_blank">{{/if}}
+                            <div class="{{#if url}}mdc-card__primary-action{{/if}} mdc-card__header mdc-card__header--padded"
+                                 {{#if url}}tabindex="0"{{/if}}>
                                 {{#if image}}
                                     <div class="mdc-card__media mdc-card__media--circle">
                                         <img src="{{preloadImage image}}" alt="{{#if company}}{{company}}{{/if}} logo"/>
@@ -27,7 +27,7 @@
                                     </span>
                                 </div>
                             </div>
-                            {{#if website}}</a>{{/if}}
+                            {{#if url}}</a>{{/if}}
                             <div class="mdc-card__content mdc-typography--body1">
                                 {{#if startDate}}
                                     <p class="mdc-card__feature mdc-card__content--padded">
