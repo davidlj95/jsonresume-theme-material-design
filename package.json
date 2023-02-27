@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
-    "gitignore": "curl http://gitignore.io/api/vim,node,linux,macos,emacs,windows,webstorm+iml > .gitignore",
+    "gitignore": "curl https://www.toptal.com/developers/gitignore/api/vim,node,linux,macos,emacs,windows,webstorm+iml -o .gitignore",
     "postgitignore": "cat .gitignore.template >> .gitignore",
     "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
     "serve": "resume serve",

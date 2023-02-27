@@ -8,3 +8,6 @@ resume.html
 # No lock files by default
 package-lock.json
 yarn.lock
+
+# Resume template (before sending it to webpack)
+/template.html
