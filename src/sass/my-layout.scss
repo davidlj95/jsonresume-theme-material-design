@@ -81,14 +81,7 @@ section {
     .mdc-layout-grid__cell {
       @media print {
         text-align: center;
-        span {
-          page-break-inside: avoid;
-        }
       }
     }
-  }
-
-  @media print {
-    page-break-inside: avoid;
   }
 }
