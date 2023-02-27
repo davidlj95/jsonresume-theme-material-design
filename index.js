@@ -13,9 +13,7 @@ const requireUncached = require('require-uncached');
 const helpers = require('handlebars-helpers');
 
 async function render(resume) {
-    return bundleResumeHtml(
-        renderTemplate(resume)
-    );
+    return bundleResumeHtml(renderTemplate(resume));
 }
 
 function renderTemplate(resume) {
@@ -63,38 +61,22 @@ function registerHelpers() {
 }
 
 async function bundleResumeHtml(resumeHtml) {
-    const tmpDirObj = tmp.dirSync();
-    const tmpDir = tmpDirObj.name;
-
-    const templateHtmlPath = path.join(tmpDir, "template.html");
+    // Render resume in a file
+    const templateHtmlPath = "template.html";
     fs.writeFileSync(templateHtmlPath, resumeHtml, "utf-8");
 
-    const distPath = path.join(tmpDir, "dist");
-
-    const config = getWebpackConfig(distPath, templateHtmlPath);
-    const compiler = webpack(config);
+    // Add CSS & JS inlined with webpack, taking resume as template
+    const compiler = webpack(webpackConfig);
     const results = await runCompiler(compiler);
-    const resultPath = path.join(distPath, "index.html");
+
+    // Return the HTML generated, with bundled CSS & JS
+    const resultPath = path.join("dist", "index.html");
     try {
         const resultHtml = fs.readFileSync(resultPath);
         return resultHtml.toString();
     } catch {
         return `Webpack did not bundle properly: ${results.compilation.errors}`;
-    } finally {
-        tmpDirObj.removeCallback();
     }
-}
-
-function getWebpackConfig(distPath, templatePath) {
-    const baseConfig = Object.assign({}, webpackConfig);
-    baseConfig.output.path = distPath;
-    baseConfig.plugins = webpackConfig.plugins.map(pluginFactory => pluginFactory(templatePath));
-    // const htmlWebpackPlugin = baseConfig.plugins.find(plugin => plugin.constructor.name === "HtmlWebpackPlugin");
-    // if (!htmlWebpackPlugin) {
-    //     throw Error('No HtmlWebpackPlugin');
-    // }
-    // htmlWebpackPlugin.options.template = templatePath;
-    return baseConfig;
 }
 
 function runCompiler(compiler) {
@@ -110,5 +92,6 @@ function runCompiler(compiler) {
 }
 
 module.exports = {
-    render: render
+    render: render,
+    renderTemplate: renderTemplate,
 };
