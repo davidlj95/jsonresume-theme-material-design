@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-material-design",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "JSON Resume theme applying Material Design guidelines",
   "repository": {
     "type": "git",
@@ -12,10 +12,15 @@
   ],
   "scripts": {
     "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
+    "prebuild": "npm run render-template",
+    "build": "webpack",
     "gitignore": "curl https://www.toptal.com/developers/gitignore/api/vim,node,linux,macos,emacs,windows,webstorm+iml -o .gitignore",
     "postgitignore": "cat .gitignore.template >> .gitignore",
     "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
-    "serve": "resume serve",
+    "render-template": "node ./renderTemplate.js",
+    "export-html": "resume export --theme . resume.html",
+    "serve": "resume serve --theme .",
+    "webpack-watch": "webpack watch",
     "serve:watch": "concurrently \"resume serve --silent\" \"browser-sync start --config bs-config.js\"",
     "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/sample.resume.json > resume.json",
     "update-all-deps": "npx npm-check-updates -u"
