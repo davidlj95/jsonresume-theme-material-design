@@ -4,7 +4,7 @@
   "description": "JSON Resume theme applying Material Design guidelines",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidlj95/jsonresume-theme-boilerplate"
+    "url": "https://github.com/davidlj95/jsonresume-theme-material-design"
   },
   "license": "MIT",
   "contributors": [
