@@ -11,14 +11,9 @@
     "David LJ <npmjs+jsonresume-theme-material-design@davidlj95.com>"
   ],
   "scripts": {
-    "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
-    "gitignore": "curl https://www.toptal.com/developers/gitignore/api/vim,node,linux,macos,emacs,windows,webstorm+iml -o .gitignore",
-    "postgitignore": "cat .gitignore.template >> .gitignore",
-    "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
     "start": "webpack serve",
     "test": "resume export --theme . resume.html",
-    "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/sample.resume.json > resume.json",
-    "update-all-deps": "npx npm-check-updates -u"
+    "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/sample.resume.json > resume.json"
   },
   "dependencies": {
     "@babel/core": "^7.21.0",
