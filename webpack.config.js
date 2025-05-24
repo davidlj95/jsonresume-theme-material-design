@@ -4,6 +4,8 @@ const registerHandlebarsHelpers = require('handlebars-helpers');
 
 const configDir = __dirname
 const srcDir = join(configDir, 'src')
+const defaultResumeFile = join(configDir, 'resume.json')
+
 registerHandlebarsHelpers()
 module.exports = function (env, argv, resume) {
     return {
@@ -12,7 +14,7 @@ module.exports = function (env, argv, resume) {
                 entry: {
                     index: {
                         import: join(srcDir, 'resume.hbs'),
-                        data: resume ?? join(configDir, 'resume.json'),
+                        data: resume ?? defaultResumeFile,
                     }
                 },
                 preprocessor: 'handlebars',
@@ -61,7 +63,7 @@ module.exports = function (env, argv, resume) {
         },
         devServer: {
             watchFiles: {
-                paths: [`${srcDir}/**/*.hbs`],
+                paths: [`${srcDir}/**/*`, defaultResumeFile],
                 options: {
                     usePolling: true,
                 }
