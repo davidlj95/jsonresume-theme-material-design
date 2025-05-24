@@ -63,10 +63,7 @@ module.exports = function (env, argv, resume) {
         },
         devServer: {
             watchFiles: {
-                paths: [`${srcDir}/**/*`, defaultResumeFile],
-                options: {
-                    usePolling: true,
-                }
+                paths: [`${srcDir}/**/*`, defaultResumeFile]
             },
             client: {
                 overlay: {
