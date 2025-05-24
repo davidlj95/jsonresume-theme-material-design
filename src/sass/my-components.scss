@@ -1,6 +1,6 @@
-@import "~@material/typography/mdc-typography";
-@import "functions";
-@import "my-theme";
+@use "~@material/typography/mdc-typography";
+@use "functions";
+@use "my-theme";
 
 /**
  * Material Cards
@@ -35,18 +35,18 @@
     }
 
     .mdc-card__media--circle > img {
-      @include mdc-card-media-circle();
+      @include functions.mdc-card-media-circle();
     }
 
     .mdc-card__media--circle--big > img {
-      @include mdc-card-media-circle(96px);
+      @include functions.mdc-card-media-circle(96px);
       @media print {
-        @include mdc-card-media-circle(15mm);
+        @include functions.mdc-card-media-circle(15mm);
       }
     }
 
     .mdc-card__media--circle--small > img {
-      @include mdc-card-media-circle(48px);
+      @include functions.mdc-card-media-circle(48px);
     }
 
     .mdc-card__header-texts {
@@ -92,7 +92,7 @@
 
     .mdc-card__feature--text {
       @media print {
-        @include mdc-typography("subtitle2");
+        @include mdc-typography.mdc-typography("subtitle2");
       }
     }
   }
@@ -174,7 +174,7 @@
  * Level star rating
  */
 .level-stars {
-  color: $stars-color;
+  color: my-theme.$stars-color;
 }
 
 

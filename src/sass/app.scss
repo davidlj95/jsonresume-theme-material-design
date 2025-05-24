@@ -1,33 +1,33 @@
-@import "my-theme";
+@use "my-theme";
 
-@import "~@material/typography/mdc-typography";
-@import "~@material/chips/mdc-chips";
-@import "~@material/icon-button/mdc-icon-button";
-@import "~@material/card/mdc-card";
-@import "~@material/list/mdc-list";
-@import "~@material/drawer/mdc-drawer";
-@import "mdc-divider";
-@import "mdc-expansion";
-@import "~@material/layout-grid/mdc-layout-grid";
-@import "~@material/top-app-bar/mdc-top-app-bar";
-@import "~@material/dialog/mdc-dialog";
-@import "~@material/button/mdc-button";
+@use "~@material/typography/mdc-typography";
+@use "~@material/chips/mdc-chips";
+@use "~@material/icon-button/mdc-icon-button";
+@use "~@material/card/mdc-card";
+@use "~@material/list/mdc-list";
+@use "~@material/drawer/mdc-drawer";
+@use "mdc-divider";
+@use "mdc-expansion";
+@use "~@material/layout-grid/mdc-layout-grid";
+@use "~@material/top-app-bar/mdc-top-app-bar";
+@use "~@material/dialog/mdc-dialog";
+@use "~@material/button/mdc-button";
 
-@import "my-layout";
-@import "my-components";
+@use "my-layout";
+@use "my-components";
 
-@import "print";
+@use "print";
 
-@import "page-header";
+@use "page-header";
 
-@import "drawer";
-@import "basics";
-@import "languages";
-@import "work";
-@import "education";
-@import "awards";
-@import "projects";
-@import "skills";
+@use "drawer";
+@use "basics";
+@use "languages";
+@use "work";
+@use "education";
+@use "awards";
+@use "projects";
+@use "skills";
 
-@import "page-footer";
-@import "download-dialog";
+@use "page-footer";
+@use "download-dialog";

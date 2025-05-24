@@ -1,7 +1,8 @@
 /*  Typography */
 // To change your theme's typography, we recommend importing a font from Google Fonts and setting the global font-family https://fonts.google.com
-@import "fonts";
-$mdc-typography-font-family: unquote("Roboto, sans-serif");
+@use "sass:string";
+@use "fonts";
+$mdc-typography-font-family: string.unquote("Roboto, sans-serif");
 
 
 /* Shape */
