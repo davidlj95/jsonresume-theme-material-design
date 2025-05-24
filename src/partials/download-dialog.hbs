@@ -1,12 +1,13 @@
-<div id="download-dialog" class="mdc-dialog js-only">
+<div id="download-dialog" class="mdc-dialog js-only"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="download-dialog-title"
+     aria-describedby="download-dialog-content">
+    >
     <div class="mdc-dialog__container">
-        <div class="mdc-dialog__surface"
-             role="alertdialog"
-             aria-modal="true"
-             aria-labelledby="Download"
-             aria-describedby="Select the download file format">
-            <h2 class="mdc-dialog__title">Choose a format</h2>
-            <div class="mdc-dialog__content">
+        <div class="mdc-dialog__surface">
+            <h2 id="download-dialog-title" class="mdc-dialog__title">Choose a format</h2>
+            <div id="download-dialog-content" class="mdc-dialog__content">
                 <ul class="mdc-list">
                     <li class="mdc-list-item" tabindex="0">
                         <span class="mdc-list-item__graphic">
@@ -23,7 +24,9 @@
                             {{fontawesome "fa" "FileCode"}}
                         </span>
                         <span class="mdc-list-item__text">
-                            <a href="#" onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)" target="_blank" download="resume.html" data-mdc-dialog-action="accept">
+                            <a href="#"
+                               onclick="this.href='data:text/html;charset=UTF-8,'+encodeURIComponent(document.documentElement.outerHTML)"
+                               target="_blank" download="resume.html" data-mdc-dialog-action="accept">
                                 HTML
                             </a>
                         </span>

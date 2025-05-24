@@ -135,12 +135,19 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', resizeHandler);
 
     /** Material Dialog **/
-    const downloadDialogList = new MDCList(document.querySelector('.mdc-dialog .mdc-list'));
-    window.downloadDialog = new MDCDialog(document.querySelector('.mdc-dialog'));
-
-    window.downloadDialog.listen('MDCDialog:opened', () => {
-        downloadDialogList.layout();
+    const downloadDialogElement =document.querySelector('#download-dialog');
+    const downloadDialog = new MDCDialog(downloadDialogElement);
+    window.downloadDialog = downloadDialog
+    downloadDialog.listen('MDCDialog:opened', () => {
+        // 👇 not sure why this was needed TBH
+        new MDCList(downloadDialogElement.querySelector('.mdc-list')).layout();
     });
+
+    const noticeDialogElement =document.querySelector('#notice-dialog');
+    if(noticeDialogElement) {
+        const noticeDialog = new MDCDialog(noticeDialogElement);
+        noticeDialog.open()
+    }
 });
 
 
