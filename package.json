@@ -41,7 +41,7 @@
     "memfs": "^4.17.2",
     "resume-cli": "^3.0.8",
     "sass": "^1.58.3",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^16.0.5",
     "sync-request": "^6.1.0",
     "webpack": "^5.75.0"
   },
