@@ -1,5 +1,6 @@
-{{#with resume.basics}}
-    <section id="basics" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections "basics"}}just-screen{{/inArray}}"{{/if}}>
+{{#with basics}}
+    <section id="basics"{{#if meta.print.hiddenSections}}class="{{#inArray meta.print.hiddenSections
+                                                                                  "basics"}}just-screen{{/inArray}}"{{/if}}>
     <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
@@ -93,8 +94,8 @@
         {{/each}}
     {{/if}}
 {{/with}}
-{{#if resume.languages.length}}
-    {{#each resume.languages}}
+{{#if languages.length}}
+    {{#each languages}}
         {{#if language}}
                 <div class="mdc-chip" role="row">
                     <div class="mdc-chip__ripple"></div>
@@ -109,7 +110,7 @@
         {{/if}}
     {{/each}}
 {{/if}}
-{{#with resume.basics}}
+{{#with basics}}
     </div>
     {{#if profiles}}
             <div class="mdc-card__action-buttons just-screen">

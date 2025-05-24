@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-material-design",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "JSON Resume theme applying Material Design guidelines",
   "repository": {
     "type": "git",
@@ -11,19 +11,9 @@
     "David LJ <npmjs+jsonresume-theme-material-design@davidlj95.com>"
   ],
   "scripts": {
-    "add-boilerplate-remote": "git remote add boilerplate https://github.com/davidlj95/jsonresume-theme-boilerplate",
-    "prebuild": "npm run render-template",
-    "build": "webpack",
-    "gitignore": "curl https://www.toptal.com/developers/gitignore/api/vim,node,linux,macos,emacs,windows,webstorm+iml -o .gitignore",
-    "postgitignore": "cat .gitignore.template >> .gitignore",
-    "rebase-from-boilerplate": "git fetch boilerplate && git rebase boilerplate/master",
-    "render-template": "node ./renderTemplate.js",
-    "export-html": "resume export --theme . resume.html",
-    "serve": "resume serve --theme .",
-    "webpack-watch": "webpack watch",
-    "serve:watch": "concurrently \"resume serve --silent\" \"browser-sync start --config bs-config.js\"",
-    "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/sample.resume.json > resume.json",
-    "update-all-deps": "npx npm-check-updates -u"
+    "start": "webpack serve",
+    "test": "resume export --theme . resume.html",
+    "update-sample-resume": "curl https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/sample.resume.json > resume.json"
   },
   "dependencies": {
     "@babel/core": "^7.21.0",
@@ -43,26 +33,21 @@
     "@material/top-app-bar": "^4.0.0",
     "@material/typography": "^4.0.0",
     "babel-loader": "^9.1.2",
-    "browser-sync": "^2.27.12",
-    "concurrently": "^7.6.0",
     "css-loader": "^6.7.3",
     "font-awesome": "^4.7.0",
     "handlebars": "^4",
     "handlebars-helpers": "^0.10.0",
-    "html-inline-css-webpack-plugin": "^1.11.1",
-    "html-inline-script-webpack-plugin": "^3.1.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.2",
-    "require-uncached": "^2.0.0",
+    "html-bundler-webpack-plugin": "^4.20.2",
+    "memfs": "^4.17.2",
     "resume-cli": "^3.0.8",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
     "sync-request": "^6.1.0",
-    "tmp": "^0.2.1",
     "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "5.2.1"
   },
   "packageManager": "pnpm@9.15.5+sha512.845196026aab1cc3f098a0474b64dfbab2afe7a1b4e91dd86895d8e4aa32a7a6d03049e2d0ad770bbe4de023a7122fb68c1a1d6e0d033c7076085f9d5d4800d4"
 }

@@ -1,13 +1,13 @@
 <aside class="mdc-drawer js-only just-screen mdc-top-app-bar--fixed-adjust">
     <div class="mdc-drawer__content">
         <nav class="mdc-list">
-            {{#if resume.basics}}
+            {{#if basics}}
                 <a class="mdc-list-item mdc-list-item--activated" href="#basics" aria-current="page">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
                     <span class="mdc-list-item__text">Basics</span>
                 </a>
             {{/if}}
-            {{#if resume.work.length}}
+            {{#if work.length}}
                 <a class="mdc-list-item" href="#work">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "Building"}}
@@ -15,7 +15,7 @@
                     <span class="mdc-list-item__text">Work</span>
                 </a>
             {{/if}}
-            {{#if resume.education.length}}
+            {{#if education.length}}
                 <a class="mdc-list-item" href="#education">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "GraduationCap"}}
@@ -23,7 +23,7 @@
                     <span class="mdc-list-item__text">Education</span>
                 </a>
             {{/if}}
-            {{#if resume.awards.length}}
+            {{#if awards.length}}
                 <a class="mdc-list-item" href="#awards">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "Award"}}
@@ -31,7 +31,7 @@
                     <span class="mdc-list-item__text">Awards</span>
                 </a>
             {{/if}}
-            {{#if resume.skills.length}}
+            {{#if skills.length}}
                 <a class="mdc-list-item" href="#skills">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "Brain"}}
@@ -39,7 +39,7 @@
                     <span class="mdc-list-item__text">Skills</span>
                 </a>
             {{/if}}
-            {{#if resume.projects.length}}
+            {{#if projects.length}}
                 <a class="mdc-list-item" href="#projects">
                     <i class="mdc-list-item__graphic" aria-hidden="true">
                         {{fontawesome "fa" "Briefcase"}}
@@ -47,7 +47,7 @@
                     <span class="mdc-list-item__text">Projects</span>
                 </a>
             {{/if}}
-            {{#if resume.languages.length}}
+            {{#if languages.length}}
                 <a class="mdc-list-item" href="#languages">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">language</i>
                     <span class="mdc-list-item__text">Languages</span>
