@@ -1,5 +1,5 @@
-{{#if resume.languages.length}}
-    <section id="languages" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections
+{{#if languages.length}}
+    <section id="languages" {{#if meta.print.hiddenSections}}class="{{#inArray meta.print.hiddenSections
                                                                                 "languages"}}just-screen{{/inArray}}"{{/if}}>
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
@@ -10,7 +10,7 @@
         </div>
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
-                {{#each resume.languages}}
+                {{#each languages}}
                     <div class="mdc-layout-grid__cell">
                         <div class="mdc-card mdc-card--outlined">
                             <div class="mdc-card__header mdc-card__header--padded">

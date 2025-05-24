@@ -1,5 +1,5 @@
-{{#if resume.education.length}}
-    <section id="education" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections
+{{#if education.length}}
+    <section id="education" {{#if meta.print.hiddenSections}}class="{{#inArray meta.print.hiddenSections
                                                                                      "education"}}just-screen{{/inArray}}"{{/if}}>
         <div class="mdc-layout-grid title">
             <div class="mdc-layout-grid__inner">
@@ -10,7 +10,7 @@
         </div>
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
-                {{#each resume.education}}
+                {{#each education}}
                     <div class="mdc-layout-grid__cell {{#if printHidden}}just-screen{{/if}}">
                         <div class="mdc-card education-card mdc-card--outlined">
                             {{#if website}}<a href="{{website}}">{{/if}}

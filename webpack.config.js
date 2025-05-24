@@ -1,64 +1,76 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
-const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
+const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
+const {join} = require('path');
+const registerHandlebarsHelpers = require('handlebars-helpers');
 
-module.exports = {
-    entry: [
-        path.join(__dirname, 'src', 'resume.js'),
-        path.join(__dirname, 'src', 'sass', 'app.scss')
-    ],
-    mode: "production",
-    module: {
-        rules: [
-            {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {loader: 'css-loader', options: {sourceMap: true}},
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sassOptions: {
-                                includePaths: ['./node_modules']
-                            },
-                            sourceMap: true,
-                        }
-                    },
-                ]
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg|png|jpeg)(\?v=\d+\.\d+\.\d+)?$/,
-                type: 'asset/inline',
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
+const configDir = __dirname
+const srcDir = join(configDir, 'src')
+registerHandlebarsHelpers()
+module.exports = function (env, argv, resume) {
+    return {
+        plugins: [
+            new HtmlBundlerPlugin({
+                entry: {
+                    index: {
+                        import: join(srcDir, 'resume.hbs'),
+                        data: resume ?? join(configDir, 'resume.json'),
+                    }
                 },
-            }
-        ]
-    },
-    plugins: [
-        // Factories as templatePath is dynamic
-        // Plugins are created every bundle request in index.js
-        //(templatePath) => new HtmlWebpackPlugin({
-        //        template: templatePath,
-        //        //inlineSource: '.(js|css)$'
-        //    }
-        //),
-        new MiniCssExtractPlugin(),
-        new HtmlWebpackPlugin({
-            template: 'template.html',
-        }),
-        new HtmlInlineScriptPlugin(),
-        new HTMLInlineCSSWebpackPlugin({
-            leaveCSSFile: true,
-            styleTagFactory({style}) {
-                return `<style>${style}</style>`;
+                preprocessor: 'handlebars',
+                preprocessorOptions: {
+                    partials: [join(srcDir, 'partials')],
+                    helpers: [join(srcDir, 'helpers')],
+                },
+                css: {
+                    inline: true,
+                },
+                js: {
+                    inline: true,
+                }
+            }),
+        ],
+        mode: env.production ? 'production' : 'development',
+        module: {
+            rules: [
+                {
+                    test: /\.scss$/,
+                    use: [
+                        {loader: 'css-loader', options: {sourceMap: true}},
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sassOptions: {
+                                    includePaths: ['./node_modules']
+                                },
+                                sourceMap: true,
+                            }
+                        },
+                    ]
+                },
+                {
+                    test: /\.(woff(2)?|ttf|eot|svg|png|jpeg)(\?v=\d+\.\d+\.\d+)?$/,
+                    type: 'asset/inline',
+                },
+                {
+                    test: /\.js$/,
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    },
+                }
+            ]
+        },
+        devServer: {
+            watchFiles: {
+                paths: [`${srcDir}/**/*.hbs`],
+                options: {
+                    usePolling: true,
+                }
             },
-        }),
-    ],
-};
+            client: {
+                overlay: {
+                    warnings: false
+                }
+            }
+        }
+    }
+}

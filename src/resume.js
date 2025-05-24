@@ -32,17 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Select DOM elements
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-    const listEl = document.querySelector('.mdc-drawer .mdc-list');
     const drawerElement = document.querySelector('.mdc-drawer');
+    const drawerListElement = document.querySelector('.mdc-drawer .mdc-list');
     const mainContentEl = document.querySelector('.main-content');
-// Create elements
+    // Create elements
     let drawer;
     let list;
     let topAppBar;
 
     const createElements = () => {
         drawer = MDCDrawer.attachTo(drawerElement);
-        list = new MDCList(listEl);
+        list = new MDCList(drawerListElement);
         list.wrapFocus = true;
         topAppBar = MDCTopAppBar.attachTo(topAppBarElement);
         topAppBar.setScrollTarget(mainContentEl);
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
         drawer.open = false;
 
         // Hide on list click
-        listEl.removeEventListener('click', closeDrawer);
-        listEl.addEventListener('click', closeDrawer);
+        drawerListElement.removeEventListener('click', closeDrawer);
+        drawerListElement.addEventListener('click', closeDrawer);
     };
 
     const initPermanentDrawer = () => {
@@ -118,13 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
         drawer.open = true;
 
         // Hide on list click
-        listEl.removeEventListener('click', closeDrawer);
+        drawerListElement.removeEventListener('click', closeDrawer);
     };
 
     window.matchMedia("(max-width: 900px)").matches ?
         initModalDrawer() : initPermanentDrawer();
 
-// Toggle between permanent drawer and modal drawer at breakpoint 900px
+    // Toggle between permanent drawer and modal drawer at breakpoint 900px
     const resizeHandler = () => {
         if (window.matchMedia("(max-width: 900px)").matches) {
             initModalDrawer();

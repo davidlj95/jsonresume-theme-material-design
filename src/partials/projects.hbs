@@ -1,4 +1,5 @@
-<section id="projects" {{#if resume.meta.print.hiddenSections}}class="{{#inArray resume.meta.print.hiddenSections
+{{#if projects.length}}
+<section id="projects" {{#if meta.print.hiddenSections}}class="{{#inArray meta.print.hiddenSections
                                                                                 "projects"}}just-screen{{/inArray}}"{{/if}}>
     <div class="mdc-layout-grid title">
         <div class="mdc-layout-grid__inner">
@@ -9,7 +10,7 @@
     </div>
     <div class="mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
-            {{#each resume.projects}}
+            {{#each projects}}
                 <div class="mdc-layout-grid__cell {{#if printHidden}}just-screen{{/if}}">
                     <div class="project-card mdc-card mdc-card--outlined">
                         {{#if url}}<a href="{{url}}" target="_blank">{{/if}}
@@ -106,3 +107,4 @@
         </div>
     </div>
 </section>
+{{/if}}

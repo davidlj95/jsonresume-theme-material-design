@@ -15,7 +15,7 @@
             }
         </style>
     </noscript>
-    {{#if options.printPreview.enabled}}
+    {{#if meta.printPreview.enabled}}
         <style>
             /** Simulate an A4 sheet **/
             html {
@@ -35,8 +35,10 @@
             body.legal.landscape       { max-width: 357mm }
         </style>
     {{/if}}
+    <link rel="stylesheet" href="./sass/app.scss">
+    <script src="./resume.js" defer></script>
 </head>
-<body class="{{#if options.printPreview.enabled}}{{#if options.printPreview.size}}{{options.printPreview.size}}{{else}}A4{{/if}}{{/if}}">
+<body class="{{#if meta.printPreview.enabled}}{{#if meta.printPreview.size}}{{meta.printPreview.size}}{{else}}A4{{/if}}{{/if}}">
 {{> notice-dialog }}
 {{> page-header }}
 {{> top-app-bar }}
