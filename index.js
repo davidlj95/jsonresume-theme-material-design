@@ -1,4 +1,3 @@
-const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
@@ -15,7 +14,9 @@ async function render (resume) {
     }
     const content = fs.readFileSync(path.join(compiler.outputPath, 'index.html'), 'utf8');
     compiler.close((closeErr) => {
-        console.error("Webpack error while closing", closeErr)
+        if(closeErr) {
+            console.error("Webpack error while closing", closeErr)
+        }
     })
     return content;
 }
